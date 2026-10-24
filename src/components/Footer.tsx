@@ -23,37 +23,37 @@ export default function Footer({
   onOpenITModal,
 }: FooterProps) {
   return (
-    <footer className="bg-[#F4F8FF] border-t border-[#E3EAF6] text-[#4A5878] pt-16 pb-12">
+    <footer className="bg-[#F7F3EC] border-t border-[#E6DED2] text-[#5E5047] pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#E3EAF6]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#E6DED2]">
           {/* Column 1: Brand & Credentials (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0B3D91] to-[#2F6BFF] flex items-center justify-center text-white shadow-md shadow-[#0B3D91]/15">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#5C3D2E] to-[#6E8F6A] flex items-center justify-center text-white shadow-md shadow-[#5C3D2E]/15">
                 <Globe2 className="w-5 h-5 text-white" />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-xl font-bold text-[#0F1B33]">
+                  <span className="text-xl font-bold text-[#2B1D14]">
                     Sanjana
                   </span>
-                  <span className="text-xl font-light text-[#0B3D91]">
+                  <span className="text-xl font-light text-[#5C3D2E]">
                     International
                   </span>
                 </div>
-                <span className="text-[10px] font-bold text-[#FF8A1F] uppercase tracking-wider">
+                <span className="text-[10px] font-bold text-[#E8A33D] uppercase tracking-wider">
                   License RL-711
                 </span>
               </div>
             </Link>
 
-            <p className="text-sm text-[#4A5878] leading-relaxed">
+            <p className="text-sm text-[#5E5047] leading-relaxed">
               Approved overseas staffing and recruitment agency licensed by the Ministry of Labor and Employment, Government of Bangladesh. Connecting skilled talent with certified Japanese and global employers safely, legally, and transparently.
             </p>
 
             {/* Govt License Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-[#E3EAF6] shadow-xs text-xs font-semibold text-[#0B3D91]">
-              <ShieldCheck className="w-4 h-4 text-[#12A36B]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-[#E6DED2] shadow-xs text-xs font-semibold text-[#5C3D2E]">
+              <ShieldCheck className="w-4 h-4 text-[#5F7F5B]" />
               <span>BMET & Ministry Approved • RL-711</span>
             </div>
 
@@ -64,7 +64,7 @@ export default function Footer({
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-[#E3EAF6] text-[#0B3D91] hover:bg-[#0B3D91] hover:text-white transition-colors flex items-center justify-center shadow-xs"
+                className="w-9 h-9 rounded-full bg-white border border-[#E6DED2] text-[#5C3D2E] hover:bg-[#5C3D2E] hover:text-white transition-colors flex items-center justify-center shadow-xs"
                 aria-label="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ export default function Footer({
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-[#E3EAF6] text-[#0B3D91] hover:bg-[#0B3D91] hover:text-white transition-colors flex items-center justify-center shadow-xs"
+                className="w-9 h-9 rounded-full bg-white border border-[#E6DED2] text-[#5C3D2E] hover:bg-[#5C3D2E] hover:text-white transition-colors flex items-center justify-center shadow-xs"
                 aria-label="LinkedIn"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ export default function Footer({
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-[#E3EAF6] text-[#0B3D91] hover:bg-[#0B3D91] hover:text-white transition-colors flex items-center justify-center shadow-xs"
+                className="w-9 h-9 rounded-full bg-white border border-[#E6DED2] text-[#5C3D2E] hover:bg-[#5C3D2E] hover:text-white transition-colors flex items-center justify-center shadow-xs"
                 aria-label="YouTube"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@ export default function Footer({
                 href="https://wa.me/88028410182"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-[#E3EAF6] text-[#12A36B] hover:bg-[#12A36B] hover:text-white transition-colors flex items-center justify-center shadow-xs"
+                className="w-9 h-9 rounded-full bg-white border border-[#E6DED2] text-[#5F7F5B] hover:bg-[#5F7F5B] hover:text-white transition-colors flex items-center justify-center shadow-xs"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -113,14 +113,14 @@ export default function Footer({
 
           {/* Column 2: Quick Links (2.5 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-sm font-bold text-[#0F1B33] uppercase tracking-wider">
+            <h4 className="text-sm font-bold text-[#2B1D14] uppercase tracking-wider">
               Navigation
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
                   href="/"
-                  className="hover:text-[#0B3D91] transition-colors"
+                  className="hover:text-[#5C3D2E] transition-colors"
                 >
                   Home
                 </Link>
@@ -129,7 +129,7 @@ export default function Footer({
                 <button
                   type="button"
                   onClick={onOpenCompanyModal}
-                  className="hover:text-[#0B3D91] transition-colors text-left"
+                  className="hover:text-[#5C3D2E] transition-colors text-left"
                 >
                   Company Overview
                 </button>
@@ -138,7 +138,7 @@ export default function Footer({
                 <button
                   type="button"
                   onClick={onOpenITModal}
-                  className="hover:text-[#0B3D91] transition-colors text-left"
+                  className="hover:text-[#5C3D2E] transition-colors text-left"
                 >
                   IT Talent Placement
                 </button>
@@ -146,7 +146,7 @@ export default function Footer({
               <li>
                 <a
                   href="#selection-procedure"
-                  className="hover:text-[#0B3D91] transition-colors"
+                  className="hover:text-[#5C3D2E] transition-colors"
                 >
                   Selection Procedure
                 </a>
@@ -154,7 +154,7 @@ export default function Footer({
               <li>
                 <a
                   href="#job-categories"
-                  className="hover:text-[#0B3D91] transition-colors"
+                  className="hover:text-[#5C3D2E] transition-colors"
                 >
                   Job Categories
                 </a>
@@ -162,7 +162,7 @@ export default function Footer({
               <li>
                 <a
                   href="#training"
-                  className="hover:text-[#0B3D91] transition-colors"
+                  className="hover:text-[#5C3D2E] transition-colors"
                 >
                   Training Academy
                 </a>
@@ -172,7 +172,7 @@ export default function Footer({
 
           {/* Column 3: Overseas Programs (2.5 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-sm font-bold text-[#0F1B33] uppercase tracking-wider">
+            <h4 className="text-sm font-bold text-[#2B1D14] uppercase tracking-wider">
               Key Programs
             </h4>
             <ul className="space-y-2.5 text-sm">
@@ -180,17 +180,17 @@ export default function Footer({
                 <button
                   type="button"
                   onClick={() => onOpenSSWModal("SSW Caregiver")}
-                  className="hover:text-[#0B3D91] transition-colors text-left flex items-center justify-between w-full"
+                  className="hover:text-[#5C3D2E] transition-colors text-left flex items-center justify-between w-full"
                 >
                   <span>Japan SSW Caregiver</span>
-                  <span className="text-[10px] text-[#FF8A1F] font-bold">Hot</span>
+                  <span className="text-[10px] text-[#E8A33D] font-bold">Hot</span>
                 </button>
               </li>
               <li>
                 <button
                   type="button"
                   onClick={() => onOpenSSWModal("SSW Agriculture")}
-                  className="hover:text-[#0B3D91] transition-colors text-left"
+                  className="hover:text-[#5C3D2E] transition-colors text-left"
                 >
                   SSW Agriculture & Farming
                 </button>
@@ -199,7 +199,7 @@ export default function Footer({
                 <button
                   type="button"
                   onClick={() => onOpenSSWModal("SSW Food Manufacturing")}
-                  className="hover:text-[#0B3D91] transition-colors text-left"
+                  className="hover:text-[#5C3D2E] transition-colors text-left"
                 >
                   SSW Food Processing
                 </button>
@@ -208,7 +208,7 @@ export default function Footer({
                 <button
                   type="button"
                   onClick={onOpenITModal}
-                  className="hover:text-[#0B3D91] transition-colors text-left"
+                  className="hover:text-[#5C3D2E] transition-colors text-left"
                 >
                   Bilingual Software Engineers
                 </button>
@@ -217,7 +217,7 @@ export default function Footer({
                 <button
                   type="button"
                   onClick={() => onOpenSSWModal("Japanese Language")}
-                  className="hover:text-[#0B3D91] transition-colors text-left"
+                  className="hover:text-[#5C3D2E] transition-colors text-left"
                 >
                   JLPT N5/N4 Preparation
                 </button>
@@ -225,7 +225,7 @@ export default function Footer({
               <li>
                 <a
                   href="#contact"
-                  className="text-[#2F6BFF] font-semibold hover:underline"
+                  className="text-[#6E8F6A] font-semibold hover:underline"
                 >
                   Foreign Employer Portal →
                 </a>
@@ -235,22 +235,22 @@ export default function Footer({
 
           {/* Column 4: Contact & Location Info (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-sm font-bold text-[#0F1B33] uppercase tracking-wider">
+            <h4 className="text-sm font-bold text-[#2B1D14] uppercase tracking-wider">
               Dhaka Office
             </h4>
-            <div className="space-y-3 text-xs leading-relaxed text-[#4A5878]">
+            <div className="space-y-3 text-xs leading-relaxed text-[#5E5047]">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#0B3D91] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#5C3D2E] shrink-0 mt-0.5" />
                 <span>
                   Shatabdi Center, 292, Inner Circular Road, 6-G (6th floor), Fakirapool, Dhaka-1000
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#2F6BFF] shrink-0" />
+                <Phone className="w-4 h-4 text-[#6E8F6A] shrink-0" />
                 <span>+880 2 8410182 / +880 2 8410183</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#12A36B] shrink-0" />
+                <Mail className="w-4 h-4 text-[#5F7F5B] shrink-0" />
                 <span>info@sanjanahr.com</span>
               </div>
             </div>
@@ -259,7 +259,7 @@ export default function Footer({
               <button
                 type="button"
                 onClick={() => onOpenSSWModal()}
-                className="w-full py-2.5 rounded-xl bg-[#FF8A1F] hover:bg-[#E67610] text-white font-bold text-xs shadow-sm transition-all"
+                className="w-full py-2.5 rounded-xl bg-[#E8A33D] hover:bg-[#C9862A] text-white font-bold text-xs shadow-sm transition-all"
               >
                 Apply for Japan SSW
               </button>
@@ -268,14 +268,14 @@ export default function Footer({
         </div>
 
         {/* Bottom Legal & Copyright Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#75839C]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8A7B6F]">
           <div>
             © 2026 Sanjana International. License RL-711. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
             <span>Approved by Ministry of Labor and Employment, Bangladesh</span>
-            <span className="text-[#C4D5F0]">•</span>
-            <a href="#about" className="hover:text-[#0B3D91] transition-colors">
+            <span className="text-[#D8CCBB]">•</span>
+            <a href="#about" className="hover:text-[#5C3D2E] transition-colors">
               RL-711 Verification
             </a>
           </div>

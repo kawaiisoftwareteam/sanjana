@@ -95,24 +95,24 @@ export default function Modals({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-[#0B3D91]/35 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-[#5C3D2E]/35 backdrop-blur-sm transition-opacity"
             onClick={onCloseSSWModal}
           />
 
           {/* Modal Container */}
-          <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#E3EAF6] overflow-hidden z-10 my-8 animate-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#E6DED2] overflow-hidden z-10 my-8 animate-in zoom-in-95 duration-200">
             {/* Modal Header */}
-            <div className="p-6 bg-gradient-to-r from-[#F4F8FF] to-white border-b border-[#E3EAF6] flex items-center justify-between">
+            <div className="p-6 bg-gradient-to-r from-[#F7F3EC] to-white border-b border-[#E6DED2] flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#FF8A1F] text-white flex items-center justify-center font-bold shadow-md shadow-[#FF8A1F]/20">
+                <div className="w-10 h-10 rounded-xl bg-[#E8A33D] text-white flex items-center justify-center font-bold shadow-md shadow-[#E8A33D]/20">
                   <Sparkles className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#0F1B33]">
+                  <h3 className="text-xl font-bold text-[#2B1D14]">
                     Japan SSW Program Registration
                   </h3>
-                  <div className="flex items-center gap-2 text-xs text-[#75839C]">
-                    <span className="text-[#0B3D91] font-semibold">
+                  <div className="flex items-center gap-2 text-xs text-[#8A7B6F]">
+                    <span className="text-[#5C3D2E] font-semibold">
                       Sanjana International • License RL-711
                     </span>
                     <span>• Ministry Approved</span>
@@ -123,7 +123,7 @@ export default function Modals({
               <button
                 type="button"
                 onClick={onCloseSSWModal}
-                className="p-2 rounded-xl text-[#75839C] hover:bg-slate-100 transition-colors"
+                className="p-2 rounded-xl text-[#8A7B6F] hover:bg-stone-100 transition-colors"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />
@@ -134,18 +134,18 @@ export default function Modals({
             <div className="p-6 sm:p-8 max-h-[75vh] overflow-y-auto">
               {sswSubmitted ? (
                 <div className="text-center py-8 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#12A36B] flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 rounded-full bg-sage-100 text-[#5F7F5B] flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h4 className="text-2xl font-bold text-[#0F1B33]">
+                  <h4 className="text-2xl font-bold text-[#2B1D14]">
                     Registration Submitted Successfully!
                   </h4>
-                  <p className="text-sm text-[#4A5878] max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-[#0F1B33]">{sswData.fullName || "Candidate"}</strong>. Your application for <strong className="text-[#0B3D91]">{category}</strong> has been logged into the Sanjana International overseas deployment registry.
+                  <p className="text-sm text-[#5E5047] max-w-md mx-auto leading-relaxed">
+                    Thank you, <strong className="text-[#2B1D14]">{sswData.fullName || "Candidate"}</strong>. Your application for <strong className="text-[#5C3D2E]">{category}</strong> has been logged into the Sanjana International overseas deployment registry.
                   </p>
 
-                  <div className="p-4 bg-[#F4F8FF] rounded-2xl border border-[#E3EAF6] text-xs text-left text-[#4A5878] space-y-1.5 max-w-md mx-auto">
-                    <div className="font-bold text-[#0B3D91]">Next Steps:</div>
+                  <div className="p-4 bg-[#F7F3EC] rounded-2xl border border-[#E6DED2] text-xs text-left text-[#5E5047] space-y-1.5 max-w-md mx-auto">
+                    <div className="font-bold text-[#5C3D2E]">Next Steps:</div>
                     <div>1. Our recruitment counselor will call you within 24-48 hours.</div>
                     <div>2. Bring original educational certificates and passport to our Fakirapool office.</div>
                     <div>3. Schedule your free Japanese language assessment and trade test briefing.</div>
@@ -158,7 +158,7 @@ export default function Modals({
                         setSswSubmitted(false);
                         onCloseSSWModal();
                       }}
-                      className="px-8 py-3 rounded-full bg-[#0B3D91] text-white font-bold text-sm hover:bg-[#1A54D6] transition-colors"
+                      className="px-8 py-3 rounded-full bg-[#5C3D2E] text-white font-bold text-sm hover:bg-[#47301F] transition-colors"
                     >
                       Done
                     </button>
@@ -166,8 +166,8 @@ export default function Modals({
                 </div>
               ) : (
                 <form onSubmit={handleSSWSubmit} className="space-y-4">
-                  <div className="p-3 bg-[#EBF2FF] rounded-xl text-xs text-[#0B3D91] flex items-center gap-2 border border-blue-200">
-                    <ShieldCheck className="w-4 h-4 text-[#0B3D91] shrink-0" />
+                  <div className="p-3 bg-[#EDF1E8] rounded-xl text-xs text-[#5C3D2E] flex items-center gap-2 border border-sage-200">
+                    <ShieldCheck className="w-4 h-4 text-[#5C3D2E] shrink-0" />
                     <span>
                       Zero Middlemen: This official registration connects you directly with our licensed Dhaka team under RL-711.
                     </span>
@@ -175,13 +175,13 @@ export default function Modals({
 
                   {/* Target Category */}
                   <div>
-                    <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                    <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                       Target Overseas Category *
                     </label>
                     <select
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] bg-white focus:ring-2 focus:ring-[#0B3D91]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] bg-white focus:ring-2 focus:ring-[#5C3D2E]"
                     >
                       <option value="SSW Caregiver">Japan SSW - Caregiver / Nursing Care</option>
                       <option value="SSW Agriculture">Japan SSW - Agriculture & Greenhouse</option>
@@ -195,7 +195,7 @@ export default function Modals({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Full Name (as per Passport) *
                       </label>
                       <input
@@ -206,12 +206,12 @@ export default function Modals({
                         onChange={(e) =>
                           setSswData({ ...sswData, fullName: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Phone / WhatsApp Number *
                       </label>
                       <input
@@ -222,14 +222,14 @@ export default function Modals({
                         onChange={(e) =>
                           setSswData({ ...sswData, phone: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Email Address
                       </label>
                       <input
@@ -239,12 +239,12 @@ export default function Modals({
                         onChange={(e) =>
                           setSswData({ ...sswData, email: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Age (Years) *
                       </label>
                       <input
@@ -257,12 +257,12 @@ export default function Modals({
                         onChange={(e) =>
                           setSswData({ ...sswData, age: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Passport Status
                       </label>
                       <select
@@ -270,7 +270,7 @@ export default function Modals({
                         onChange={(e) =>
                           setSswData({ ...sswData, passportStatus: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] bg-white focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] bg-white focus:ring-2 focus:ring-[#5C3D2E]"
                       >
                         <option value="Valid Passport Ready">Valid Passport Ready</option>
                         <option value="Application in Process">Application in Process</option>
@@ -281,7 +281,7 @@ export default function Modals({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Japanese Language Skill Level
                       </label>
                       <select
@@ -289,7 +289,7 @@ export default function Modals({
                         onChange={(e) =>
                           setSswData({ ...sswData, japaneseLevel: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] bg-white focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] bg-white focus:ring-2 focus:ring-[#5C3D2E]"
                       >
                         <option value="None (Interested in Training)">None (Want to Learn)</option>
                         <option value="JLPT N5 Passed / JFT-Basic">JLPT N5 Passed / JFT-Basic</option>
@@ -299,7 +299,7 @@ export default function Modals({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Highest Educational Qualification
                       </label>
                       <select
@@ -307,7 +307,7 @@ export default function Modals({
                         onChange={(e) =>
                           setSswData({ ...sswData, education: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] bg-white focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] bg-white focus:ring-2 focus:ring-[#5C3D2E]"
                       >
                         <option value="SSC / Dakhil">SSC / 10th Standard</option>
                         <option value="HSC / Equivalent">HSC / 12th Standard</option>
@@ -319,7 +319,7 @@ export default function Modals({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                    <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                       Relevant Experience or Skill Details
                     </label>
                     <textarea
@@ -329,14 +329,14 @@ export default function Modals({
                       onChange={(e) =>
                         setSswData({ ...sswData, experience: e.target.value })
                       }
-                      className="w-full px-4 py-2 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                      className="w-full px-4 py-2 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                     />
                   </div>
 
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-xl bg-[#FF8A1F] hover:bg-[#E67610] text-white font-bold text-base shadow-lg shadow-[#FF8A1F]/25 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                      className="w-full py-3.5 rounded-xl bg-[#E8A33D] hover:bg-[#C9862A] text-white font-bold text-base shadow-lg shadow-[#E8A33D]/25 flex items-center justify-center gap-2 transition-all cursor-pointer"
                       id="modal-submit-ssw"
                     >
                       <Send className="w-4 h-4" />
@@ -354,22 +354,22 @@ export default function Modals({
       {companyModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div
-            className="fixed inset-0 bg-[#0B3D91]/35 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-[#5C3D2E]/35 backdrop-blur-sm transition-opacity"
             onClick={onCloseCompanyModal}
           />
 
-          <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-[#E3EAF6] overflow-hidden z-10 my-8 animate-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-[#E6DED2] overflow-hidden z-10 my-8 animate-in zoom-in-95 duration-200">
             {/* Header */}
-            <div className="p-6 bg-gradient-to-r from-[#F4F8FF] to-white border-b border-[#E3EAF6] flex items-center justify-between">
+            <div className="p-6 bg-gradient-to-r from-[#F7F3EC] to-white border-b border-[#E6DED2] flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#0B3D91] text-white flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[#5C3D2E] text-white flex items-center justify-center font-bold">
                   <Building2 className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#0F1B33]">
+                  <h3 className="text-xl font-bold text-[#2B1D14]">
                     Sanjana International — Company Profile
                   </h3>
-                  <div className="text-xs text-[#12A36B] font-semibold flex items-center gap-1.5">
+                  <div className="text-xs text-[#5F7F5B] font-semibold flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>Recruiting License: RL-711 • Govt. Authorized</span>
                   </div>
@@ -379,7 +379,7 @@ export default function Modals({
               <button
                 type="button"
                 onClick={onCloseCompanyModal}
-                className="p-2 rounded-xl text-[#75839C] hover:bg-slate-100 transition-colors"
+                className="p-2 rounded-xl text-[#8A7B6F] hover:bg-stone-100 transition-colors"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />
@@ -387,53 +387,53 @@ export default function Modals({
             </div>
 
             {/* Body */}
-            <div className="p-6 sm:p-8 max-h-[75vh] overflow-y-auto space-y-6 text-sm text-[#4A5878] leading-relaxed">
+            <div className="p-6 sm:p-8 max-h-[75vh] overflow-y-auto space-y-6 text-sm text-[#5E5047] leading-relaxed">
               <div>
-                <h4 className="text-base font-bold text-[#0F1B33] mb-2">
+                <h4 className="text-base font-bold text-[#2B1D14] mb-2">
                   Official Licensing & Regulatory Authority
                 </h4>
                 <p>
-                  Sanjana International is an approved overseas recruitment and human resources consultancy operating under Recruiting License No. <strong className="text-[#0B3D91]">RL-711</strong>, duly sanctioned by the Ministry of Labor and Employment and the Bureau of Manpower, Employment and Training (BMET), Government of Bangladesh.
+                  Sanjana International is an approved overseas recruitment and human resources consultancy operating under Recruiting License No. <strong className="text-[#5C3D2E]">RL-711</strong>, duly sanctioned by the Ministry of Labor and Employment and the Bureau of Manpower, Employment and Training (BMET), Government of Bangladesh.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-[#F4F8FF] rounded-2xl border border-[#E3EAF6]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 bg-[#F7F3EC] rounded-2xl border border-[#E6DED2]">
                 <div>
-                  <div className="text-xs font-bold text-[#75839C] uppercase">
+                  <div className="text-xs font-bold text-[#8A7B6F] uppercase">
                     Agency Name
                   </div>
-                  <div className="font-bold text-[#0F1B33]">
+                  <div className="font-bold text-[#2B1D14]">
                     Sanjana International
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#75839C] uppercase">
+                  <div className="text-xs font-bold text-[#8A7B6F] uppercase">
                     Government License
                   </div>
-                  <div className="font-bold text-[#12A36B]">
+                  <div className="font-bold text-[#5F7F5B]">
                     RL-711 (Active & In Good Standing)
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#75839C] uppercase">
+                  <div className="text-xs font-bold text-[#8A7B6F] uppercase">
                     Primary Office
                   </div>
-                  <div className="font-semibold text-[#0F1B33]">
+                  <div className="font-semibold text-[#2B1D14]">
                     Shatabdi Center, 6-G, Fakirapool, Dhaka
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#75839C] uppercase">
+                  <div className="text-xs font-bold text-[#8A7B6F] uppercase">
                     Key Sending Corridors
                   </div>
-                  <div className="font-semibold text-[#0F1B33]">
+                  <div className="font-semibold text-[#2B1D14]">
                     Japan (SSW & IT), Middle East & Beyond
                   </div>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-base font-bold text-[#0F1B33] mb-2">
+                <h4 className="text-base font-bold text-[#2B1D14] mb-2">
                   Our Mission & Ethical Code
                 </h4>
                 <p>
@@ -442,7 +442,7 @@ export default function Modals({
               </div>
 
               <div>
-                <h4 className="text-base font-bold text-[#0F1B33] mb-2">
+                <h4 className="text-base font-bold text-[#2B1D14] mb-2">
                   Full Repatriation Commitment
                 </h4>
                 <p>
@@ -454,7 +454,7 @@ export default function Modals({
                 <button
                   type="button"
                   onClick={onCloseCompanyModal}
-                  className="px-6 py-2.5 rounded-full bg-[#0B3D91] text-white text-xs font-bold hover:bg-[#1A54D6]"
+                  className="px-6 py-2.5 rounded-full bg-[#5C3D2E] text-white text-xs font-bold hover:bg-[#47301F]"
                 >
                   Close Profile
                 </button>
@@ -468,22 +468,22 @@ export default function Modals({
       {itModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
           <div
-            className="fixed inset-0 bg-[#0B3D91]/35 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-[#5C3D2E]/35 backdrop-blur-sm transition-opacity"
             onClick={onCloseITModal}
           />
 
-          <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#E3EAF6] overflow-hidden z-10 my-8 animate-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-[#E6DED2] overflow-hidden z-10 my-8 animate-in zoom-in-95 duration-200">
             {/* Header */}
-            <div className="p-6 bg-gradient-to-r from-[#F4F8FF] to-white border-b border-[#E3EAF6] flex items-center justify-between">
+            <div className="p-6 bg-gradient-to-r from-[#F7F3EC] to-white border-b border-[#E6DED2] flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#2F6BFF] text-white flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-[#6E8F6A] text-white flex items-center justify-center font-bold">
                   <Briefcase className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#0F1B33]">
+                  <h3 className="text-xl font-bold text-[#2B1D14]">
                     Job Placement of IT Talents
                   </h3>
-                  <div className="text-xs text-[#0B3D91] font-semibold">
+                  <div className="text-xs text-[#5C3D2E] font-semibold">
                     Tokyo Tech Corridors • Engineering Visa Sponsorship
                   </div>
                 </div>
@@ -492,7 +492,7 @@ export default function Modals({
               <button
                 type="button"
                 onClick={onCloseITModal}
-                className="p-2 rounded-xl text-[#75839C] hover:bg-slate-100 transition-colors"
+                className="p-2 rounded-xl text-[#8A7B6F] hover:bg-stone-100 transition-colors"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />
@@ -503,13 +503,13 @@ export default function Modals({
             <div className="p-6 sm:p-8 max-h-[75vh] overflow-y-auto">
               {itSubmitted ? (
                 <div className="text-center py-8 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#12A36B] flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 rounded-full bg-sage-100 text-[#5F7F5B] flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h4 className="text-2xl font-bold text-[#0F1B33]">
+                  <h4 className="text-2xl font-bold text-[#2B1D14]">
                     IT Profile Submitted!
                   </h4>
-                  <p className="text-sm text-[#4A5878] max-w-md mx-auto">
+                  <p className="text-sm text-[#5E5047] max-w-md mx-auto">
                     Our technical recruitment lead will review your profile and contact you for a technical assessment and Japanese language orientation.
                   </p>
                   <button
@@ -518,15 +518,15 @@ export default function Modals({
                       setItSubmitted(false);
                       onCloseITModal();
                     }}
-                    className="px-6 py-2.5 rounded-full bg-[#0B3D91] text-white font-bold text-xs"
+                    className="px-6 py-2.5 rounded-full bg-[#5C3D2E] text-white font-bold text-xs"
                   >
                     Done
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleITSubmit} className="space-y-4">
-                  <div className="p-3 bg-[#F4F8FF] rounded-xl text-xs text-[#0F1B33] space-y-1 border border-[#E3EAF6]">
-                    <div className="font-bold text-[#0B3D91]">
+                  <div className="p-3 bg-[#F7F3EC] rounded-xl text-xs text-[#2B1D14] space-y-1 border border-[#E6DED2]">
+                    <div className="font-bold text-[#5C3D2E]">
                       Direct Japanese Enterprise Tech Hiring:
                     </div>
                     <div>
@@ -538,7 +538,7 @@ export default function Modals({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                    <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                       Full Name *
                     </label>
                     <input
@@ -549,13 +549,13 @@ export default function Modals({
                       onChange={(e) =>
                         setItData({ ...itData, fullName: e.target.value })
                       }
-                      className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Email Address *
                       </label>
                       <input
@@ -566,12 +566,12 @@ export default function Modals({
                         onChange={(e) =>
                           setItData({ ...itData, email: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Phone / WhatsApp *
                       </label>
                       <input
@@ -582,14 +582,14 @@ export default function Modals({
                         onChange={(e) =>
                           setItData({ ...itData, phone: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Primary Tech Domain
                       </label>
                       <select
@@ -597,7 +597,7 @@ export default function Modals({
                         onChange={(e) =>
                           setItData({ ...itData, techStack: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] bg-white focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] bg-white focus:ring-2 focus:ring-[#5C3D2E]"
                       >
                         <option value="Full Stack (React / Node / Python)">Full Stack (React / Node / Python)</option>
                         <option value="Backend (Java / Go / Microservices)">Backend (Java / Go / Microservices)</option>
@@ -609,7 +609,7 @@ export default function Modals({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                      <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                         Japanese Proficiency
                       </label>
                       <select
@@ -617,7 +617,7 @@ export default function Modals({
                         onChange={(e) =>
                           setItData({ ...itData, japaneseLevel: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] bg-white focus:ring-2 focus:ring-[#0B3D91]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] bg-white focus:ring-2 focus:ring-[#5C3D2E]"
                       >
                         <option value="Beginner / None">None / Beginner (Willing to Learn)</option>
                         <option value="JLPT N5 / Basic Conversational">JLPT N5 / Basic Conversational</option>
@@ -629,7 +629,7 @@ export default function Modals({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#0F1B33] mb-1">
+                    <label className="block text-xs font-bold text-[#2B1D14] mb-1">
                       GitHub / LinkedIn / Portfolio URL
                     </label>
                     <input
@@ -642,14 +642,14 @@ export default function Modals({
                           githubOrPortfolio: e.target.value,
                         })
                       }
-                      className="w-full px-4 py-2.5 rounded-xl border border-[#E3EAF6] text-sm text-[#0F1B33] focus:ring-2 focus:ring-[#0B3D91]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-[#E6DED2] text-sm text-[#2B1D14] focus:ring-2 focus:ring-[#5C3D2E]"
                     />
                   </div>
 
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-xl bg-[#0B3D91] hover:bg-[#1A54D6] text-white font-bold text-base shadow-md shadow-[#0B3D91]/20 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                      className="w-full py-3.5 rounded-xl bg-[#5C3D2E] hover:bg-[#47301F] text-white font-bold text-base shadow-md shadow-[#5C3D2E]/20 flex items-center justify-center gap-2 transition-all cursor-pointer"
                       id="modal-submit-it"
                     >
                       <Send className="w-4 h-4" />

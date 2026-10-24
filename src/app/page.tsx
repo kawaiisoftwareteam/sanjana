@@ -36,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white flex flex-col selection:bg-[#0B3D91] selection:text-white">
+    <main className="min-h-screen bg-white flex flex-col selection:bg-[#5C3D2E] selection:text-white">
       {/* 1. Navbar with Top Bar, Sticky Glassmorphism & Mobile Drawer */}
       <Navbar
         onOpenSSWModal={handleOpenSSWModal}
@@ -70,13 +70,13 @@ export default function Home() {
       {/* 8. Training Teaser: Language Academy & Technical Trade Testing */}
       <TrainingTeaser onOpenSSWModal={handleOpenSSWModal} />
 
-      {/* 9. Final CTA Banner: Solid Royal Blue #0B3D91 with White Title & Saffron Button */}
+      {/* 9. Final CTA Banner: Solid Royal Blue #5C3D2E with White Title & Saffron Button */}
       <CTABanner onOpenSSWModal={() => handleOpenSSWModal("General SSW")} />
 
       {/* 10. Contact Section: Direct Office Information & Dual-Audience Inquiry Form */}
       <ContactSection />
 
-      {/* 11. Footer: Light Theme (#F4F8FF), Address, License RL-711 & Legal Disclaimers */}
+      {/* 11. Footer: Light Theme (#F7F3EC), Address, License RL-711 & Legal Disclaimers */}
       <Footer
         onOpenSSWModal={handleOpenSSWModal}
         onOpenCompanyModal={handleOpenCompanyModal}

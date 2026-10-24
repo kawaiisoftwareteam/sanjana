@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { Jost } from "next/font/google";
+import { Jost, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 const jost = Jost({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-jost",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -42,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jost.variable} h-full scroll-smooth light`}>
+    <html lang="en" className={`${jost.variable} ${cormorant.variable} h-full scroll-smooth light`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -51,7 +59,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${jost.className} min-h-full flex flex-col bg-white text-[#4A5878] antialiased selection:bg-[#0B3D91] selection:text-white`}>
+      <body className={`${jost.className} min-h-full flex flex-col bg-white text-[#5E5047] antialiased selection:bg-[#5C3D2E] selection:text-white`}>
         {children}
       </body>
     </html>

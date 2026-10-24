@@ -1,35 +1,56 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-serif: var(--font-cormorant), Georgia, serif;
+}
+
+@theme {
+  --color-sage-50: #F3F6F1;
+  --color-sage-100: #E4EBE1;
+  --color-sage-200: #CBD8C6;
+  --color-sage-300: #ADC1A7;
+  --color-sage-400: #8FA88A;
+  --color-sage-500: #768F71;
+  --color-sage-600: #5F7F5B;
+  --color-sage-700: #4C6549;
+
+  --color-walnut-50: #F7F1EC;
+  --color-walnut-100: #EADCD0;
+  --color-walnut-500: #7A5541;
+  --color-walnut-600: #5C3D2E;
+  --color-walnut-700: #47301F;
+}
+
 @layer base {
   :root {
     --font-jost: 'Jost', sans-serif;
+
+    /* Sage · Walnut · Amber palette */
+    --bg-main: #FCFAF6;
+    --bg-soft: #F7F3EC;
+    --bg-tint: #EDF1E8;
+
+    --walnut: #5C3D2E;
+    --sage: #6E8F6A;
+    --walnut-hover: #47301F;
+
+    --amber: #E8A33D;
+    --amber-hover: #C9862A;
+    --amber-soft: #FBF2E1;
+
+    --sage-deep: #5F7F5B;
+    --sage-soft: #EEF3EA;
     
-    /* Strict Light Theme Palette */
-    --bg-main: #FFFFFF;
-    --bg-soft: #F4F8FF;
-    --bg-tint: #EBF2FF;
+    --text-heading: #2B1D14;
+    --text-body: #5E5047;
+    --text-muted: #8A7B6F;
     
-    --primary-blue: #0B3D91;
-    --primary-light: #2F6BFF;
-    --primary-hover: #1A54D6;
+    --border-color: #E6DED2;
+    --border-subtle: #F3EEE6;
     
-    --accent-saffron: #FF8A1F;
-    --accent-hover: #E67610;
-    --accent-soft: #FFF4EB;
-    
-    --success-emerald: #12A36B;
-    --success-soft: #E8F7F0;
-    
-    --text-heading: #0F1B33;
-    --text-body: #4A5878;
-    --text-muted: #75839C;
-    
-    --border-color: #E3EAF6;
-    --border-subtle: #EEF3FB;
-    
-    --shadow-soft: 0 4px 20px -2px rgba(11, 61, 145, 0.06);
-    --shadow-card: 0 10px 30px -4px rgba(11, 61, 145, 0.08);
-    --shadow-floating: 0 20px 40px -6px rgba(11, 61, 145, 0.12);
+    --shadow-soft: 0 4px 20px -2px rgba(92, 61, 46, 0.06);
+    --shadow-card: 0 10px 30px -4px rgba(92, 61, 46, 0.08);
+    --shadow-floating: 0 20px 40px -6px rgba(92, 61, 46, 0.12);
   }
 
   * {
@@ -69,31 +90,46 @@
 }
 
 .gradient-text-blue {
-  background: linear-gradient(135deg, #0B3D91 0%, #2F6BFF 100%);
+  background: linear-gradient(135deg, #5C3D2E 0%, #6E8F6A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-saffron {
-  background: linear-gradient(135deg, #FF8A1F 0%, #FFB057 100%);
+  background: linear-gradient(135deg, #E8A33D 0%, #F6C878 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px rgba(232, 163, 61, 0.35));
+}
+
+/* Amber glow */
+@keyframes amberGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 163, 61, 0), 0 10px 30px -6px rgba(232, 163, 61, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(232, 163, 61, 0.12), 0 14px 44px -4px rgba(232, 163, 61, 0.6);
+  }
+}
+
+.amber-glow {
+  animation: amberGlow 3.2s ease-in-out infinite;
 }
 
 /* Glassmorphism */
 .glass-nav {
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(252, 250, 246, 0.86);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(227, 234, 246, 0.8);
+  border-bottom: 1px solid rgba(230, 222, 210, 0.8);
 }
 
 .glass-card {
   background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(227, 234, 246, 0.9);
-  box-shadow: 0 16px 36px -8px rgba(11, 61, 145, 0.12);
+  border: 1px solid rgba(230, 222, 210, 0.9);
+  box-shadow: 0 16px 36px -8px rgba(92, 61, 46, 0.12);
 }
 
 /* Custom Animations */
@@ -145,7 +181,8 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-float-slow,
   .animate-float-reverse,
-  .animate-marquee {
+  .animate-marquee,
+  .amber-glow {
     animation: none !important;
   }
 }
@@ -155,12 +192,12 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #F4F8FF;
+  background: #F7F3EC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C4D5F0;
+  background: #D8CCBB;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0B3D91;
+  background: #5C3D2E;
 }

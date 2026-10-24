@@ -32,7 +32,7 @@ const linkCls =
   "group relative py-2 whitespace-nowrap text-[12px] font-semibold uppercase tracking-[0.14em] text-white/75 hover:text-white transition-colors";
 const dot = (active = false) => (
   <span
-    className={`absolute left-1/2 -bottom-1 w-1 h-1 -translate-x-1/2 rounded-full bg-[#FF8A1F] transition-opacity ${
+    className={`absolute left-1/2 -bottom-1 w-1 h-1 -translate-x-1/2 rounded-full bg-[#E8A33D] transition-opacity ${
       active ? "opacity-100" : "opacity-0 group-hover:opacity-100"
     }`}
   />
@@ -42,11 +42,11 @@ function Logo() {
   return (
     <Link href="/" id="brand-logo" className="group flex items-center gap-3 focus:outline-none">
       <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-lg shadow-black/20">
-        <Plane className="w-5 h-5 text-[#0B3D91] -rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        <Plane className="w-5 h-5 text-[#5C3D2E] -rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
       </span>
       <span className="leading-none">
         <span className="block text-[20px] font-semibold tracking-tight text-white">
-          Sanjana<span className="text-[#FF8A1F]">.</span>
+          Sanjana<span className="text-[#E8A33D]">.</span>
         </span>
         <span className="block mt-1 whitespace-nowrap text-[9px] font-medium uppercase tracking-[0.28em] text-white/55">
           International · RL-711
@@ -80,7 +80,7 @@ export default function Navbar({
       <header
         className={`fixed top-0 left-0 right-0 z-50 w-full border-b transition-all duration-300 ${
           isScrolled
-            ? "bg-[#06122B]/90 backdrop-blur-xl border-white/10 shadow-xl shadow-black/30"
+            ? "bg-[#1E150F]/90 backdrop-blur-xl border-white/10 shadow-xl shadow-black/30"
             : "bg-gradient-to-b from-black/50 to-transparent border-white/15"
         }`}
       >
@@ -118,7 +118,7 @@ export default function Navbar({
 
               {aboutDropdownOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-80 pt-4 z-50">
-                  <div className="rounded-2xl bg-[#06122B]/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/40 p-2 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="rounded-2xl bg-[#1E150F]/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/40 p-2 animate-in fade-in slide-in-from-top-2 duration-150">
                     <button
                       type="button"
                       onClick={() => {
@@ -128,7 +128,7 @@ export default function Navbar({
                       className="w-full text-left p-3 rounded-xl hover:bg-white/[0.06] transition-colors flex items-start gap-3"
                       id="dropdown-company-overview"
                     >
-                      <span className="p-2 rounded-lg bg-[#2F6BFF]/15 text-[#7FA8FF]">
+                      <span className="p-2 rounded-lg bg-[#6E8F6A]/15 text-[#B3C8AD]">
                         <Building2 className="w-4 h-4" />
                       </span>
                       <span>
@@ -147,7 +147,7 @@ export default function Navbar({
                       className="w-full text-left p-3 rounded-xl hover:bg-white/[0.06] transition-colors flex items-start gap-3"
                       id="dropdown-it-placement"
                     >
-                      <span className="p-2 rounded-lg bg-[#FF8A1F]/15 text-[#FFA94D]">
+                      <span className="p-2 rounded-lg bg-[#E8A33D]/15 text-[#F2BC5E]">
                         <Briefcase className="w-4 h-4" />
                       </span>
                       <span>
@@ -185,7 +185,7 @@ export default function Navbar({
               id="nav-btn-contact-outline"
               className="hidden 2xl:flex items-center gap-2 whitespace-nowrap text-sm font-medium text-white/80 hover:text-white transition-colors"
             >
-              <Phone className="w-4 h-4 text-[#FF8A1F]" />
+              <Phone className="w-4 h-4 text-[#E8A33D]" />
               +880 2 8410182
             </a>
 
@@ -193,10 +193,10 @@ export default function Navbar({
               type="button"
               onClick={() => onOpenSSWModal()}
               id="nav-btn-ssw-register"
-              className="group hidden sm:inline-flex items-center gap-3 h-11 pl-5 pr-1.5 rounded-full bg-white text-[#06122B] text-sm font-semibold whitespace-nowrap shadow-lg shadow-black/20 hover:bg-[#FFF4EA] transition-colors cursor-pointer"
+              className="group hidden sm:inline-flex items-center gap-3 h-11 pl-5 pr-1.5 rounded-full bg-white text-[#1E150F] text-sm font-semibold whitespace-nowrap shadow-lg shadow-black/20 hover:bg-[#FBF2E1] transition-colors cursor-pointer"
             >
               SSW Registration
-              <span className="w-8 h-8 rounded-full bg-[#FF8A1F] text-white flex items-center justify-center">
+              <span className="w-8 h-8 rounded-full bg-[#E8A33D] text-white flex items-center justify-center">
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:rotate-45" />
               </span>
             </button>
@@ -204,7 +204,7 @@ export default function Navbar({
             <button
               type="button"
               onClick={() => onOpenSSWModal()}
-              className="sm:hidden h-9 px-4 rounded-full bg-white text-[#06122B] font-semibold text-xs"
+              className="sm:hidden h-9 px-4 rounded-full bg-white text-[#1E150F] font-semibold text-xs"
             >
               SSW Apply
             </button>
@@ -223,7 +223,7 @@ export default function Navbar({
 
       {/* Mobile full-screen menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] lg:hidden bg-[#06122B] flex flex-col animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-[60] lg:hidden bg-[#1E150F] flex flex-col animate-in fade-in duration-200">
           <div className="h-20 px-5 sm:px-8 flex items-center justify-between border-b border-white/10">
             <Logo />
             <button
@@ -279,7 +279,7 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 onOpenSSWModal();
               }}
-              className="w-full h-12 rounded-full bg-[#FF8A1F] text-white font-bold flex items-center justify-center gap-2"
+              className="w-full h-12 rounded-full bg-[#E8A33D] text-white font-bold flex items-center justify-center gap-2"
               id="drawer-ssw-btn"
             >
               SSW Registration
@@ -287,11 +287,11 @@ export default function Navbar({
             </button>
             <div className="flex flex-col gap-1.5 text-xs text-white/60">
               <span className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#FF8A1F]" />
+                <Phone className="w-3.5 h-3.5 text-[#E8A33D]" />
                 +880 2 8410182 / +880 2 8410183
               </span>
               <span className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#FF8A1F]" />
+                <Mail className="w-3.5 h-3.5 text-[#E8A33D]" />
                 info@sanjanahr.com
               </span>
             </div>

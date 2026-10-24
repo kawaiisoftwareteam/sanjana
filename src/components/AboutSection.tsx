@@ -2,17 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import {
-  ShieldCheck,
-  Award,
-  FileCheck2,
-  CheckCircle2,
-  Building2,
-  Users,
-  Compass,
-  ArrowRight,
-  Sparkles,
-} from "lucide-react";
+import { ShieldCheck, ArrowRight } from "lucide-react";
 
 interface AboutSectionProps {
   onOpenCompanyModal: () => void;
@@ -22,161 +12,128 @@ export default function AboutSection({ onOpenCompanyModal }: AboutSectionProps) 
   const credentials = [
     {
       title: "Government License RL-711",
-      desc: "Officially registered and authorized by the Ministry of Labor and Employment, Government of Bangladesh.",
-      icon: ShieldCheck,
-      color: "text-[#0B3D91] bg-[#EBF2FF]",
+      desc: "Registered and authorized by the Ministry of Labor and Employment, Government of Bangladesh.",
     },
     {
       title: "Japan SSW Sending Organization",
-      desc: "Accredited sending agency under the bilateral Japan-Bangladesh Government Specified Skilled Worker framework.",
-      icon: Award,
-      color: "text-[#FF8A1F] bg-[#FFF4EB]",
+      desc: "Accredited under the bilateral Japan–Bangladesh Specified Skilled Worker framework.",
     },
     {
       title: "Full Repatriation Assurance",
-      desc: "End-to-end welfare monitoring, overseas crisis support, and complete legal repatriation guarantee.",
-      icon: FileCheck2,
-      color: "text-[#12A36B] bg-emerald-50",
+      desc: "End-to-end welfare monitoring, overseas crisis support, and legal repatriation guarantee.",
     },
     {
       title: "Ethical & Transparent Hiring",
-      desc: "Strictly regulated government fees, verified contracts, and zero hidden recruitment charges.",
-      icon: CheckCircle2,
-      color: "text-[#2F6BFF] bg-blue-50",
+      desc: "Regulated government fees, verified contracts, and zero hidden recruitment charges.",
     },
   ];
 
+  const stats = [
+    { value: "15+", label: "Years of leadership" },
+    { value: "10k+", label: "Candidates deployed" },
+    { value: "RL-711", label: "Govt. licensed" },
+  ];
+
   return (
-    <section id="about" className="py-20 lg:py-28 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Image with Verified Badges */}
-          <div className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative rounded-3xl overflow-hidden border-4 border-[#F4F8FF] shadow-2xl shadow-[#0B3D91]/10 bg-[#F4F8FF]">
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src="/images/training-center.jpg"
-                  alt="Sanjana International candidate orientation and vocational training facility in Dhaka"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B3D91]/40 via-transparent to-transparent pointer-events-none" />
-              </div>
+    <section id="about" className="relative overflow-hidden bg-[#F7F3EC] py-24 lg:py-32">
+      <div className="pointer-events-none absolute -top-32 right-[-10%] h-[520px] w-[520px] rounded-full bg-[#E8A33D]/15 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-[-20%] left-[-10%] h-[480px] w-[480px] rounded-full bg-sage-300/25 blur-[140px]" />
 
-              {/* In-Image Caption */}
-              <div className="p-6 bg-white border-t border-[#E3EAF6]">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-base font-bold text-[#0F1B33]">
-                      Sanjana Training Academy
-                    </div>
-                    <div className="text-xs text-[#75839C]">
-                      Pre-Departure Japanese Language & Skill Center, Dhaka
-                    </div>
-                  </div>
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100 text-[#12A36B] flex items-center justify-center font-bold text-xs">
-                    ✓ Verified
-                  </div>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-20">
+          {/* Arched image */}
+          <div className="relative order-2 mx-auto w-full max-w-md lg:order-1 lg:col-span-5">
+            <div className="absolute inset-0 translate-x-5 translate-y-5 rounded-t-full rounded-b-3xl border border-[#5C3D2E]/20" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-3xl shadow-2xl shadow-[#5C3D2E]/20">
+              <Image
+                src="/images/training-center.jpg"
+                alt="Sanjana International candidate orientation and vocational training facility in Dhaka"
+                fill
+                sizes="(max-width: 1024px) 90vw, 450px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1E150F]/80 via-[#1E150F]/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-7 text-white">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#F6C878]">
+                  Pre-departure center · Dhaka
                 </div>
+                <div className="mt-1 font-serif text-2xl font-medium">Sanjana Training Academy</div>
               </div>
             </div>
 
-            {/* Overlapping Floating Verified Seal */}
-            <div className="absolute -top-6 -right-4 sm:-right-6 glass-card rounded-2xl p-4 flex items-center gap-3.5 shadow-xl border border-emerald-100 bg-white/95">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#12A36B] to-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-500/20">
-                <ShieldCheck className="w-7 h-7 text-white" />
-              </div>
+            <div className="absolute -right-4 top-16 flex items-center gap-3 rounded-2xl border border-white/60 bg-white/80 px-4 py-3 shadow-xl shadow-[#5C3D2E]/10 backdrop-blur-md sm:-right-8">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#5F7F5B] text-white">
+                <ShieldCheck className="h-5 w-5" />
+              </span>
               <div>
-                <div className="text-xs font-bold text-[#12A36B] uppercase tracking-wider">
-                  Official Verification
+                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5F7F5B]">
+                  Officially verified
                 </div>
-                <div className="text-sm font-extrabold text-[#0F1B33]">
-                  License No: RL-711
-                </div>
-                <div className="text-[11px] text-[#75839C]">
-                  Ministry of Labor & Employment
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Experience Tag */}
-            <div className="absolute -bottom-5 -left-4 sm:-left-6 bg-white border border-[#E3EAF6] rounded-2xl p-4 shadow-xl flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-[#0B3D91] text-white flex items-center justify-center font-bold text-lg">
-                15+
-              </div>
-              <div>
-                <div className="text-xs font-bold text-[#0F1B33]">
-                  Years of Leadership
-                </div>
-                <div className="text-[11px] text-[#75839C]">
-                  International Manpower Supply
-                </div>
+                <div className="text-sm font-bold text-[#2B1D14]">License RL-711</div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: About Content */}
-          <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF2FF] text-[#0B3D91] text-xs font-bold uppercase tracking-wider">
-              <Building2 className="w-3.5 h-3.5" />
-              <span>About Sanjana International</span>
+          {/* Content */}
+          <div className="order-1 lg:order-2 lg:col-span-7">
+            <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#C9862A]">
+              <span className="h-px w-10 bg-[#E8A33D]" />
+              About Sanjana International
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F1B33] tracking-tight leading-[1.15]">
-              Empowering Overseas Aspirations with{" "}
-              <span className="gradient-text-blue">Integrity & Excellence</span>
+            <h2 className="mt-6 font-serif text-4xl font-medium leading-[1.1] text-[#2B1D14] sm:text-5xl lg:text-6xl">
+              Empowering overseas aspirations with{" "}
+              <em className="text-[#5F7F5B]">integrity &amp; excellence</em>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#4A5878] leading-relaxed">
-              Headquartered in Fakirapool, Dhaka, <strong className="text-[#0F1B33]">Sanjana International (License RL-711)</strong> is a premier overseas employment and human resource consultancy approved by the Ministry of Labor and Employment, Government of Bangladesh.
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-[#5E5047]">
+              Headquartered in Fakirapool, Dhaka, <span className="font-semibold text-[#2B1D14]">Sanjana International</span> is
+              a premier overseas employment and HR consultancy approved by the Ministry of Labor and Employment.
+            </p>
+            <p className="mt-4 max-w-2xl leading-relaxed text-[#8A7B6F]">
+              We source, screen, and prepare skilled professionals for Japan and key international markets — with
+              pre-departure cultural immersion and continuous post-arrival care.
             </p>
 
-            <p className="text-base text-[#4A5878] leading-relaxed">
-              We specialize in sourcing, screening, technically evaluating, and deploying high-caliber professionals, technical trainees, and skilled workers to Japan and key international markets. Through stringent compliance, pre-departure Japanese cultural immersion, and continuous post-arrival monitoring, we ensure long-term career growth for candidates and exceptional productivity for foreign employers.
-            </p>
+            <dl className="lining-nums mt-10 grid max-w-xl grid-cols-3 divide-x divide-[#5C3D2E]/15 border-y border-[#5C3D2E]/15 py-6">
+              {stats.map((s) => (
+                <div key={s.label} className="px-3 first:pl-0 sm:px-4">
+                  <dt className="whitespace-nowrap font-serif text-3xl font-semibold text-[#5C3D2E] sm:text-4xl">{s.value}</dt>
+                  <dd className="mt-1 text-xs uppercase tracking-wider text-[#8A7B6F]">{s.label}</dd>
+                </div>
+              ))}
+            </dl>
 
-            {/* Credential Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {credentials.map((item, idx) => {
-                const IconComponent = item.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl bg-[#F4F8FF] border border-[#E3EAF6] hover:border-[#2F6BFF]/40 hover:bg-white hover:shadow-md transition-all duration-200"
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className={`p-2 rounded-xl ${item.color}`}>
-                        <IconComponent className="w-4 h-4" />
-                      </div>
-                      <h3 className="font-bold text-sm text-[#0F1B33]">
-                        {item.title}
-                      </h3>
-                    </div>
-                    <p className="text-xs text-[#75839C] leading-normal">
-                      {item.desc}
-                    </p>
+            <ol className="mt-10 grid gap-x-10 gap-y-7 sm:grid-cols-2">
+              {credentials.map((item, idx) => (
+                <li key={item.title} className="group flex gap-4">
+                  <span className="font-serif text-3xl italic leading-none lining-nums text-[#E8A33D] transition-colors group-hover:text-[#C9862A]">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-[#2B1D14]">{item.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-[#8A7B6F]">{item.desc}</p>
                   </div>
-                );
-              })}
-            </div>
+                </li>
+              ))}
+            </ol>
 
-            {/* Action Button */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="mt-12 flex flex-wrap items-center gap-6">
               <button
                 type="button"
                 onClick={onOpenCompanyModal}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#0B3D91] hover:bg-[#1A54D6] text-white font-semibold text-base shadow-md shadow-[#0B3D91]/20 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#5C3D2E] py-2 pl-7 pr-2 font-medium text-white shadow-lg shadow-[#5C3D2E]/25 transition-all duration-300 hover:bg-[#47301F] hover:shadow-xl"
                 id="about-more-details-btn"
               >
-                <span>More Details</span>
-                <ArrowRight className="w-4 h-4 text-white" />
+                More about us
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E8A33D] transition-transform duration-300 group-hover:translate-x-1">
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </button>
-
-              <div className="flex items-center gap-2 text-xs text-[#75839C]">
-                <ShieldCheck className="w-4 h-4 text-[#12A36B]" />
-                <span>Verified by Bangladesh Ministry of Expatriates Welfare</span>
-              </div>
+              <span className="flex items-center gap-2 text-sm text-[#8A7B6F]">
+                <ShieldCheck className="h-4 w-4 text-[#5F7F5B]" />
+                Verified by Ministry of Expatriates&apos; Welfare
+              </span>
             </div>
           </div>
         </div>
