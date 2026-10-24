@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-jost: 'Jost', sans-serif;
+    
+    /* Strict Light Theme Palette */
+    --bg-main: #FFFFFF;
+    --bg-soft: #F4F8FF;
+    --bg-tint: #EBF2FF;
+    
+    --primary-blue: #0B3D91;
+    --primary-light: #2F6BFF;
+    --primary-hover: #1A54D6;
+    
+    --accent-saffron: #FF8A1F;
+    --accent-hover: #E67610;
+    --accent-soft: #FFF4EB;
+    
+    --success-emerald: #12A36B;
+    --success-soft: #E8F7F0;
+    
+    --text-heading: #0F1B33;
+    --text-body: #4A5878;
+    --text-muted: #75839C;
+    
+    --border-color: #E3EAF6;
+    --border-subtle: #EEF3FB;
+    
+    --shadow-soft: 0 4px 20px -2px rgba(11, 61, 145, 0.06);
+    --shadow-card: 0 10px 30px -4px rgba(11, 61, 145, 0.08);
+    --shadow-floating: 0 20px 40px -6px rgba(11, 61, 145, 0.12);
+  }
+
+  * {
+    border-color: var(--border-color);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-jost), sans-serif;
+    color: var(--text-body);
+    background-color: var(--bg-main);
+  }
+
+  body {
+    font-family: var(--font-jost), sans-serif;
+    color: var(--text-body);
+    background-color: var(--bg-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-heading);
+    font-family: var(--font-jost), sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Typography helper classes */
+.hero-headline {
+  font-family: var(--font-jost), sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5.2vw, 4.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--text-heading);
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #0B3D91 0%, #2F6BFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-saffron {
+  background: linear-gradient(135deg, #FF8A1F 0%, #FFB057 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(227, 234, 246, 0.8);
+}
+
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(227, 234, 246, 0.9);
+  box-shadow: 0 16px 36px -8px rgba(11, 61, 145, 0.12);
+}
+
+/* Custom Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.5deg);
+  }
+}
+
+@keyframes marqueeStrip {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeStrip 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
+/* Soft scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F8FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4D5F0;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0B3D91;
 }
