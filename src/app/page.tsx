@@ -45,9 +45,7 @@ export default function Home() {
       />
 
       {/* 2. Hero Section with 2-Column Layout, Image Collage & Highlight Strip */}
-      <Hero
-        onOpenSSWModal={() => handleOpenSSWModal("General SSW")}
-      />
+      <Hero />
 
       {/* 3. About Section: License RL-711, Ministry Approval & Credentials */}
       <AboutSection onOpenCompanyModal={handleOpenCompanyModal} />

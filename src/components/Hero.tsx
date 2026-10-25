@@ -1,129 +1,82 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { Sparkles, ArrowRight } from "lucide-react";
-
-interface HeroProps {
-  onOpenSSWModal: () => void;
-}
 
 const SLIDES = [
   {
-    src: "/hero/01-takes-flight.png",
-    alt: "Biman Bangladesh takes flight from Dhaka",
+    src: "/hero/07-passport-sunset.png",
+    alt: "Traveler holding a Bangladeshi passport at sunset",
   },
   {
-    src: "/hero/02-river-city.png",
-    alt: "Biman Bangladesh ascending over river city",
+    src: "/hero/08-fuji-tourist.jpg",
+    alt: "Traveler with luggage at Lake Kawaguchiko facing Mount Fuji",
   },
   {
-    src: "/hero/03-above-clouds.png",
-    alt: "Biman Bangladesh cruising above the clouds",
-  },
-  {
-    src: "/hero/04-mount-fuji.png",
-    alt: "Biman Bangladesh approaching Mount Fuji",
-  },
-  {
-    src: "/hero/05-narita-landing.png",
-    alt: "Biman Bangladesh landing at Narita",
+    src: "/hero/06-stadium-construction.png",
+    alt: "Construction crew at a stadium worksite",
   },
 ] as const;
 
-const INTERVAL_MS = 4500;
+const HOLD_MS = 4200;
+const EXIT_MS = 850;
+const ENTER_MS = 950;
 
-export default function Hero({ onOpenSSWModal }: HeroProps) {
+type Phase = "enter" | "hold" | "exit";
+
+export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [phase, setPhase] = useState<Phase>("enter");
 
   useEffect(() => {
-    const id = window.setInterval(() => {
-      setActiveIndex((i) => (i + 1) % SLIDES.length);
-    }, INTERVAL_MS);
-    return () => window.clearInterval(id);
-  }, []);
+    const ms = phase === "enter" ? ENTER_MS : phase === "hold" ? HOLD_MS : EXIT_MS;
+    const id = window.setTimeout(() => {
+      if (phase === "enter") setPhase("hold");
+      else if (phase === "hold") setPhase("exit");
+      else {
+        setActiveIndex((i) => (i + 1) % SLIDES.length);
+        setPhase("enter");
+      }
+    }, ms);
+    return () => window.clearTimeout(id);
+  }, [phase]);
 
   return (
     <section
       id="hero"
-      className="relative w-full min-h-screen overflow-hidden bg-[#140E0A] flex flex-col justify-center"
+      className="relative w-full min-h-screen overflow-hidden bg-[#140E0A] flex items-center justify-center"
     >
-      <div className="absolute inset-0">
-        {SLIDES.map((slide, i) => (
-          <div
-            key={slide.src}
-            className={`absolute inset-0 transition-opacity duration-[1400ms] ease-in-out ${
-              i === activeIndex ? "opacity-100" : "opacity-0"
-            }`}
-            aria-hidden={i !== activeIndex}
-          >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className={`object-cover object-center transition-transform duration-[4500ms] ease-out ${
-                i === activeIndex ? "scale-110" : "scale-100"
-              }`}
-            />
-          </div>
-        ))}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          key={SLIDES[activeIndex].src}
+          className={`absolute inset-0 ${
+            phase === "enter" ? "hero-fly-in" : phase === "exit" ? "hero-fly-out" : ""
+          }`}
+        >
+          <img
+            src={SLIDES[activeIndex].src}
+            alt={SLIDES[activeIndex].alt}
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <img
+          src={SLIDES[(activeIndex + 1) % SLIDES.length].src}
+          alt=""
+          className="hidden"
+        />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#140E0A]/70 via-[#2E2017]/40 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#140E0A]/75 via-transparent to-[#140E0A]/35 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#140E0A]/45 pointer-events-none" />
 
-      <div className="relative z-10 w-full px-5 sm:px-8 lg:px-12 xl:px-16 pt-28 sm:pt-32 lg:pt-36 pb-16">
-        <div className="max-w-2xl flex flex-col items-start space-y-5 sm:space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-sage-400" />
-            </span>
-            License RL-711 · Govt. Approved
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-white tracking-tight leading-[1.08]">
-            Your Trusted Bridge to{" "}
-            <span className="bg-gradient-to-r from-[#A9C1A3] via-[#C9D8C3] to-[#9DB896] bg-clip-text text-transparent inline-block">
-              Global Careers
-            </span>
-          </h1>
-
-          <p className="text-base sm:text-lg text-stone-100/90 max-w-lg font-normal">
-            Skilled pathways to Japan — legal, safe, transparent.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={onOpenSSWModal}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-none amber-glow bg-gradient-to-r from-[#E8A33D] to-[#E39A2E] hover:from-[#E39A2E] hover:to-[#B8761F] text-white font-bold text-sm sm:text-base shadow-xl shadow-[#E8A33D]/35 hover:shadow-2xl hover:shadow-[#E8A33D]/50 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
-              id="hero-btn-ssw-register"
-            >
-              <Sparkles className="w-4 h-4 text-white" />
-              <span>Register for SSW</span>
-            </button>
-
-            <a
-              href="#job-categories"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-none bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 hover:border-white font-semibold text-sm sm:text-base backdrop-blur-md shadow-lg shadow-black/20 hover:-translate-y-0.5 transition-all duration-200 group"
-              id="hero-btn-explore-categories"
-            >
-              <span>Explore Job Categories</span>
-              <ArrowRight className="w-4 h-4 text-[#A9C1A3] group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
-
-          <div className="flex items-center gap-3 text-sm text-stone-200/90">
-            <span className="font-semibold text-white">15+ Yrs</span>
-            <span className="text-white/30">·</span>
-            <span className="font-semibold text-[#EDB04E]">10,000+ Deployed</span>
-            <span className="text-white/30">·</span>
-            <span className="font-semibold text-sage-300">RL-711</span>
-          </div>
-        </div>
+      <div className="relative z-10 px-5 flex flex-col items-center">
+        <h1 className="w-fit text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.15]">
+          <span className="block text-white">Your Trusted Bridge</span>
+          <span className="mt-1 block pl-16 sm:pl-24 md:pl-36 lg:pl-48 bg-gradient-to-r from-[#A9C1A3] via-[#C9D8C3] to-[#9DB896] bg-clip-text text-transparent">
+            To Global Careers
+          </span>
+        </h1>
+        <p className="mt-6 text-base sm:text-lg text-stone-100/90 font-normal text-center">
+          Skilled pathways to Japan — legal, safe, transparent.
+        </p>
       </div>
     </section>
   );

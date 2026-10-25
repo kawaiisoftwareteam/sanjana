@@ -116,6 +116,27 @@
   animation: amberGlow 3.2s ease-in-out infinite;
 }
 
+/* Hero: current pic flies out, then next flies in */
+@keyframes heroFlyOut {
+  to {
+    transform: translateX(-28%) translateY(-10%) scale(1.06);
+    opacity: 0;
+  }
+}
+@keyframes heroFlyIn {
+  from {
+    transform: translateX(24%) scale(1.05);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.hero-fly-out { animation: heroFlyOut 0.85s ease-in forwards; }
+.hero-fly-in { animation: heroFlyIn 0.95s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
 /* Glassmorphism */
 .glass-nav {
   background-color: rgba(252, 250, 246, 0.86);
