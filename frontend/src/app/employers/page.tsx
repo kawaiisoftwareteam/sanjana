@@ -44,7 +44,7 @@ const steps = [
 ];
 
 const stats = [
-  { value: "RL-711", label: "Govt. approved license" },
+  { value: "RL-711", label: "Recruiting Licence" },
   { value: "16+", label: "Industries supplied" },
   { value: "60–90", label: "Days avg. deployment" },
   { value: "100%", label: "Trade-tested workers" },

@@ -3,6 +3,7 @@
 import NavDropdown from "@/components/NavDropdown";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const assetPathPrefix = "/figma";
 const imgVector65 = `${assetPathPrefix}/49deb.png`;
@@ -18,7 +19,6 @@ const imgEllipse1535 = `${assetPathPrefix}/13a89.png`;
 const imgCalendarIcon = `${assetPathPrefix}/4cd7d.png`;
 const imgFrame4675 = `${assetPathPrefix}/21a21.png`;
 const imgSubtract = `${assetPathPrefix}/28a48.svg`;
-const imgArrowRight = `${assetPathPrefix}/25f80.svg`;
 const imgSvg = `${assetPathPrefix}/16862.svg`;
 const imgSvg1 = `${assetPathPrefix}/23dcd.svg`;
 const imgCircleCheck = `${assetPathPrefix}/70b9c.svg`;
@@ -34,9 +34,6 @@ const imgBriefcaseBusiness = `${assetPathPrefix}/3d256.svg`;
 const imgArrowRight1 = `${assetPathPrefix}/56e29.svg`;
 const imgPlane = `${assetPathPrefix}/0d4d1.svg`;
 const imgArrowRight2 = `${assetPathPrefix}/cf42c.svg`;
-const imgMapPin = `${assetPathPrefix}/bd034.svg`;
-const imgCircleCheck2 = `${assetPathPrefix}/7880d.svg`;
-const imgArrowRight3 = `${assetPathPrefix}/d2dd7.svg`;
 const imgFrame = `${assetPathPrefix}/54cd2.svg`;
 const imgFrame1 = `${assetPathPrefix}/baabe.svg`;
 const imgFrame2 = `${assetPathPrefix}/dd972.svg`;
@@ -51,7 +48,6 @@ const navLinks = [
   { label: "About Us", href: "#about-us" },
   { label: "Job Categories", href: "#job-categories" },
   { label: "Training", href: "#training" },
-  { label: "Contact Us", href: "#contact-us" },
   { label: "SSW Registration", href: "#ssw-registration" },
 ];
 
@@ -424,13 +420,7 @@ export default function Home() {
   const [openWhyIndex, setOpenWhyIndex] = useState<number | null>(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // Contact form state
-  const [contactRole, setContactRole] = useState<string>("Employer");
-  const [fullName, setFullName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [phone, setPhone] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-  const [submitted, setSubmitted] = useState<boolean>(false);
+  const router = useRouter();
 
   // Responsive navbar refs & measurement (modern-web-guidance navbar pattern)
   const headerRef = useRef<HTMLElement | null>(null);
@@ -536,20 +526,7 @@ export default function Home() {
   };
 
   const handleSelectRoleAndScroll = (role: string) => {
-    setContactRole(role);
-    setSubmitted(false);
-    const el = document.getElementById("contact-us");
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!fullName.trim() || !email.trim() || !message.trim()) return;
-    setSubmitted(true);
-    setFullName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
+    router.push(`/contact?role=${encodeURIComponent(role)}#message`);
   };
 
   return (
@@ -630,24 +607,22 @@ export default function Home() {
               {/* Mobile-only CTA inside menu */}
               <li className="w-full pt-2 mt-2 border-t border-black/10 sm:hidden">
                 <a
-                  href="#contact-us"
-                  onClick={() => handleNavClick("#contact-us")}
-                  className="flex items-center justify-center gap-2 w-full bg-[#c1262e] hover:bg-[#a61e25] text-white font-semibold text-[15px] py-3 px-4 rounded-[10px] transition-colors"
+                  href="/contact"
+                  onClick={() => handleNavClick("/contact")}
+                  className="flex items-center justify-center w-full bg-[#c1262e] hover:bg-[#a61e25] text-white font-semibold text-[15px] py-3 px-4 rounded-[10px] transition-colors"
                 >
-                  <span>GET STARTED</span>
-                  <img alt="" className="size-4" src={imgArrowRight} />
+                  <span>Contact Us</span>
                 </a>
               </li>
             </ul>
 
             {/* Desktop / Tablet CTA Button */}
             <a
-              href="#contact-us"
-              onClick={() => handleNavClick("#contact-us")}
-              className="hidden sm:inline-flex bg-[#c1262e] hover:bg-[#a61e25] active:scale-[0.98] transition-all gap-3 h-[44px] lg:h-[52px] items-center justify-center px-5 lg:px-6 rounded-[10px] shrink-0 text-white font-['Inter',sans-serif] font-semibold text-[14px] lg:text-[15px] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[#c1262e] focus-visible:outline-offset-2"
+              href="/contact"
+              onClick={() => handleNavClick("/contact")}
+              className="hidden sm:inline-flex bg-[#c1262e] hover:bg-[#a61e25] active:scale-[0.98] transition-all h-[44px] lg:h-[52px] items-center justify-center px-5 lg:px-6 rounded-[10px] shrink-0 text-white font-['Inter',sans-serif] font-semibold text-[14px] lg:text-[15px] whitespace-nowrap focus-visible:outline-2 focus-visible:outline-[#c1262e] focus-visible:outline-offset-2"
             >
-              <span>GET STARTED</span>
-              <img alt="" className="size-[18px]" src={imgArrowRight} />
+              <span>Contact Us</span>
             </a>
 
             {/* Mobile Menu Trigger */}
@@ -757,7 +732,7 @@ export default function Home() {
                   className="font-['Inter',sans-serif] text-[14px] sm:text-[15px] text-white/95"
                   style={{ fontFeatureSettings: '"dlig" 1' }}
                 >
-                  GOVT. APPROVED RECRUITING AGENCY (RL-711)
+                  RECRUITING LICENCE (RL-711)
                 </p>
                 <div className="bg-white/80 h-px w-full mt-1" />
               </div>
@@ -830,7 +805,7 @@ export default function Home() {
                 className="font-['Inter',sans-serif] font-medium text-[#303030] text-[15px] sm:text-[16px]"
                 style={{ fontFeatureSettings: '"dlig" 1' }}
               >
-                Active recruiting license
+                Recruiting Licence
               </p>
             </div>
 
@@ -917,7 +892,7 @@ export default function Home() {
               <ul className="flex flex-col gap-3.5 sm:gap-4 py-2 w-full">
                 {[
                   {
-                    text: "Licensed by the Government of Bangladesh - RL-711",
+                    text: "Recruiting Licence (RL-711) - Government of Bangladesh",
                     icon: imgCircleCheck,
                   },
                   {
@@ -1478,190 +1453,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact Us */}
-        <section id="contact-us" className="w-full py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12">
-          <div className="max-w-[1520px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            {/* Contact Introduction */}
-            <div className="lg:col-span-5 flex flex-col">
-              <p className="font-['Inter',sans-serif] font-semibold text-[#c1262e] text-[28px] sm:text-[42px] leading-tight">
-                Contact
-              </p>
-              <h2 className="font-['Inter',sans-serif] font-bold text-[#151719] text-[32px] sm:text-[44px] leading-[1.15] tracking-tight mt-1">
-                Tell us what you need.
-              </h2>
-              <p className="font-['Inter',sans-serif] text-[#737783] text-[17px] sm:text-[19px] leading-[1.55] mt-4 mb-8">
-                Employers, candidates and IT professionals - send us a short
-                inquiry and the right person on our team will respond.
-              </p>
-
-              <div className="border-l-2 border-[#e2dbd4] flex flex-col gap-6 pl-6">
-                <div>
-                  <h3 className="font-['Inter',sans-serif] font-medium text-[#151719] text-[19px] sm:text-[21px]">
-                    We review your inquiry
-                  </h3>
-                  <p className="font-['Inter',sans-serif] text-[#737783] text-[15px] sm:text-[16px] mt-1">
-                    Your message goes to the team responsible for your request.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-['Inter',sans-serif] font-medium text-[#151719] text-[19px] sm:text-[21px]">
-                    We reply with next steps
-                  </h3>
-                  <p className="font-['Inter',sans-serif] text-[#737783] text-[15px] sm:text-[16px] mt-1">
-                    For employers, a sourcing plan; for candidates, matching openings.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-['Inter',sans-serif] font-medium text-[#151719] text-[19px] sm:text-[21px]">
-                    We stay in touch
-                  </h3>
-                  <p className="font-['Inter',sans-serif] text-[#737783] text-[15px] sm:text-[16px] mt-1">
-                    One point of contact through the whole recruitment journey.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-8 mt-8 border-t-2 border-[#e2dbd4] flex flex-col gap-5">
-                <div className="flex gap-3.5 items-start">
-                  <img alt="" className="size-[22px] shrink-0 mt-1" src={imgMapPin} />
-                  <div>
-                    <p className="font-['Inter',sans-serif] font-medium text-[#151719] text-[19px]">
-                      Head Office
-                    </p>
-                    <p className="font-['Inter',sans-serif] text-[#737783] text-[16px]">
-                      Dhaka, Bangladesh
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-3.5 items-start">
-                  <img alt="" className="size-[22px] shrink-0 mt-1" src={imgCircleCheck2} />
-                  <div>
-                    <p className="font-['Inter',sans-serif] font-medium text-[#151719] text-[19px]">
-                      Government Licence
-                    </p>
-                    <p className="font-['Inter',sans-serif] text-[#737783] text-[16px]">
-                      No. RL-711, Government of Bangladesh
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Interactive Inquiry Form */}
-            <form
-              onSubmit={handleFormSubmit}
-              className="lg:col-span-7 bg-white border-2 border-[#e2dbd4] rounded-[20px] p-6 sm:p-10 flex flex-col gap-6"
-            >
-              <div className="flex flex-col gap-3">
-                <span className="font-['Inter',sans-serif] text-[#151719] text-[17px] sm:text-[18px]">
-                  I am contacting you as
-                </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  {["Employer", "Candidate", "IT Recruitment", "Other"].map(
-                    (role) => {
-                      const active = contactRole === role;
-                      return (
-                        <button
-                          key={role}
-                          type="button"
-                          onClick={() => setContactRole(role)}
-                          className={`h-[48px] px-3 rounded-[10px] border-2 font-['Inter',sans-serif] text-[15px] transition-colors cursor-pointer ${
-                            active
-                              ? "bg-[#fcf0f2] border-[#cc0a2f] text-[#cc0a2f] font-medium"
-                              : "bg-white border-[#e2dbd4] text-[#151719] hover:border-[#cc0a2f]/50"
-                          }`}
-                        >
-                          {role}
-                        </button>
-                      );
-                    }
-                  )}
-                </div>
-              </div>
-
-              <label className="flex flex-col gap-2">
-                <span className="font-['Inter',sans-serif] text-[#151719] text-[17px]">
-                  Full Name
-                </span>
-                <input
-                  type="text"
-                  required
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  placeholder="Enter your full name"
-                  className="border-2 border-[#e2dbd4] focus:border-[#cc0a2f] focus:outline-none rounded-[10px] h-[52px] px-4 font-['Inter',sans-serif] text-[16px] text-[#151719]"
-                />
-              </label>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <label className="flex flex-col gap-2">
-                  <span className="font-['Inter',sans-serif] text-[#151719] text-[17px]">
-                    Email Address
-                  </span>
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="you@example.com"
-                    className="border-2 border-[#e2dbd4] focus:border-[#cc0a2f] focus:outline-none rounded-[10px] h-[52px] px-4 font-['Inter',sans-serif] text-[16px] text-[#151719]"
-                  />
-                </label>
-
-                <label className="flex flex-col gap-2">
-                  <span className="flex items-center justify-between font-['Inter',sans-serif] text-[17px]">
-                    <span className="text-[#151719]">Phone Number</span>
-                    <span className="text-[#737783] text-[14px]">Optional</span>
-                  </span>
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+880 1XXX-XXXXXX"
-                    className="border-2 border-[#e2dbd4] focus:border-[#cc0a2f] focus:outline-none rounded-[10px] h-[52px] px-4 font-['Inter',sans-serif] text-[16px] text-[#151719]"
-                  />
-                </label>
-              </div>
-
-              <label className="flex flex-col gap-2">
-                <span className="font-['Inter',sans-serif] text-[#151719] text-[17px]">
-                  Message
-                </span>
-                <textarea
-                  required
-                  rows={4}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Roles, number of workers, destination country and expected start date..."
-                  className="border-2 border-[#e2dbd4] focus:border-[#cc0a2f] focus:outline-none rounded-[10px] p-4 font-['Inter',sans-serif] text-[16px] text-[#151719] resize-y"
-                />
-              </label>
-
-              {submitted && (
-                <div
-                  role="status"
-                  className="bg-green-50 border border-green-300 text-green-900 rounded-[10px] px-4 py-3 text-[15px] font-['Inter',sans-serif]"
-                >
-                  Thank you! Your {contactRole} inquiry has been received. Our
-                  recruitment team will contact you shortly.
-                </div>
-              )}
-
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-                <p className="font-['Inter',sans-serif] text-[#737783] text-[15px]">
-                  All fields except phone are required.
-                </p>
-                <button
-                  type="submit"
-                  className="bg-[#cc0a2f] hover:bg-[#a60826] active:scale-[0.98] transition-all flex gap-3 h-[54px] items-center justify-center px-7 rounded-[12px] text-white font-['Inter',sans-serif] font-bold text-[16px] cursor-pointer shrink-0"
-                >
-                  <span>Submit Inquiry</span>
-                  <img alt="" className="size-[18px]" src={imgArrowRight3} />
-                </button>
-              </div>
-            </form>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
@@ -1694,7 +1485,7 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#contact-us" className="hover:text-white transition-colors">
+                  <a href="/contact" className="hover:text-white transition-colors">
                     Contact us
                   </a>
                 </li>
@@ -1718,11 +1509,11 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#about-us" className="hover:text-white transition-colors">
-                    License (RL-711)
+                    Recruiting Licence (RL-711)
                   </a>
                 </li>
                 <li>
-                  <a href="#contact-us" className="hover:text-white transition-colors">
+                  <a href="/contact" className="hover:text-white transition-colors">
                     Support
                   </a>
                 </li>

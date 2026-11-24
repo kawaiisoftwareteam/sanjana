@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Sanjana International - Career in Japan",
-  description: "Govt. Approved Recruiting Agency (RL-711). Your trusted recruitment partner for skilled professionals, technical specialists, and workforce solutions across international markets.",
+  description: "Recruiting Licence (RL-711). Your trusted recruitment partner for skilled professionals, technical specialists, and workforce solutions across international markets.",
 };
 
 export const viewport: Viewport = {

@@ -6,14 +6,14 @@ const logo = "/figma/28a48.svg";
 const navLinks = [
   { label: "Home", href: "/#home" },
   { label: "About Us", href: "/#about-us" },
-  { label: "Contact Us", href: "/#contact-us" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function SubPageShell({
   active,
   children,
 }: {
-  active?: "/jobs" | "/employers";
+  active?: "/jobs" | "/employers" | "/contact";
   children: React.ReactNode;
 }) {
   return (
@@ -52,7 +52,12 @@ export default function SubPageShell({
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-[#171b1c] hover:text-[#c1262e] transition-colors"
+                    aria-current={active === l.href ? "page" : undefined}
+                    className={
+                      active === l.href
+                        ? "font-semibold text-[#c1262e] border-b-2 border-[#c1262e] pb-1"
+                        : "text-[#171b1c] hover:text-[#c1262e] transition-colors"
+                    }
                   >
                     {l.label}
                   </Link>
@@ -64,7 +69,7 @@ export default function SubPageShell({
           <div className="flex items-center gap-2">
             <NavDropdown title="Opportunities" active={active} align="right" className="md:hidden" triggerClassName="text-[14px] font-semibold px-3 py-2" />
             <Link
-              href="/#contact-us"
+              href="/contact"
               className="inline-flex bg-[#c1262e] hover:bg-[#a61e25] transition-colors h-[42px] sm:h-[48px] items-center px-4 sm:px-5 rounded-[10px] text-white font-['Inter',sans-serif] font-semibold text-[14px] whitespace-nowrap"
             >
               Contact
@@ -78,8 +83,7 @@ export default function SubPageShell({
       <footer className="w-full bg-[#0d0d0c] py-10 px-4 sm:px-6 lg:px-12 text-[#a7a9ac]">
         <div className="max-w-[1520px] mx-auto flex flex-col sm:flex-row gap-4 sm:items-center justify-between font-['Inter',sans-serif] text-[15px]">
           <p>
-            © {new Date().getFullYear()} Sanjana International · Govt. Approved
-            Recruiting Agency (RL-711)
+            © {new Date().getFullYear()} Sanjana International · Recruiting Licence (RL-711)
           </p>
           <div className="flex gap-5">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
