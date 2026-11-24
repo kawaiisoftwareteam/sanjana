@@ -5,7 +5,7 @@ import SubPageShell from "@/components/SubPageShell";
 export const metadata: Metadata = {
   title: "Industries We Serve | Sanjana International - Skilled & Technical Manpower",
   description:
-    "Supplying vetted Bangladeshi workers across key global industries: manufacturing, construction, nursing care, agriculture, hospitality, automotive, food processing and IT under RL-711.",
+    "Supplying vetted Bangladeshi workers across key global industries: manufacturing, construction, nursing care, agriculture, hospitality, automotive, food processing and IT under Recruiting Licence (RL-711).",
 };
 
 const industries = [
@@ -140,7 +140,7 @@ export default function IndustriesPage() {
         />
         <div className="relative max-w-[1520px] mx-auto flex flex-col items-center text-center">
           <span className="bg-[#c1262e] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-            RL-711 Industry Portfolios
+            Recruiting Licence (RL-711) Industry Portfolios
           </span>
           <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-tight max-w-[1050px]">
             Industries We Serve Across Japan &amp; Global Markets

@@ -5,7 +5,7 @@ import SubPageShell from "@/components/SubPageShell";
 export const metadata: Metadata = {
   title: "Technical Intern Training Program (TITP) Japan | Sanjana International",
   description:
-    "Japan Technical Intern Training Program (TITP) recruitment and 2027 Employment for Skill Development (ESD) transition guidance. Approved sending organization BGD000036 under RL-711.",
+    "Japan Technical Intern Training Program (TITP) recruitment and 2027 Employment for Skill Development (ESD) transition guidance. Approved sending organization BGD000036 under Recruiting Licence (RL-711).",
 };
 
 const selectionSteps = [
@@ -64,7 +64,7 @@ export default function TITPPage() {
         />
         <div className="relative max-w-[1520px] mx-auto flex flex-col items-center text-center">
           <span className="bg-[#c1262e] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-            OTIT Sending Organization: BGD000036 · RL-711
+            OTIT Sending Organization: BGD000036 · Recruiting Licence (RL-711)
           </span>
           <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-tight max-w-[1050px]">
             Japan Technical Intern Training Program (TITP) Recruitment from Bangladesh
@@ -107,7 +107,7 @@ export default function TITPPage() {
             </p>
             <div className="bg-[#f8f9fa] border-l-4 border-[#c1262e] p-5 rounded-r-xl">
               <p className="font-semibold text-[#171b1c] text-base">
-                Sanjana International is officially listed in Japan&apos;s OTIT approved sending-organization records under code <strong>BGD000036</strong> and operates under Bangladesh Recruiting Licence <strong>RL-711</strong>.
+                Sanjana International is officially listed in Japan&apos;s OTIT approved sending-organization records under code <strong>BGD000036</strong> and operates under Bangladesh <strong>Recruiting Licence (RL-711)</strong>.
               </p>
             </div>
           </div>

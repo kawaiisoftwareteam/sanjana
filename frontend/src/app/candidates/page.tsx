@@ -6,7 +6,7 @@ import CandidateRegisterForm from "./CandidateRegisterForm";
 export const metadata: Metadata = {
   title: "For Candidates | Sanjana International - Build Your Global Career",
   description:
-    "Explore legitimate overseas career opportunities in Japan and global markets. Candidate registration, 7-step employment journey, and ethical support under RL-711.",
+    "Explore legitimate overseas career opportunities in Japan and global markets. Candidate registration, 7-step employment journey, and ethical support under Recruiting Licence (RL-711).",
 };
 
 const candidateGroups = [
@@ -92,7 +92,7 @@ export default function CandidatesPage() {
         />
         <div className="relative max-w-[1520px] mx-auto flex flex-col items-center text-center">
           <span className="bg-[#c1262e] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-            Candidate Career Portal · RL-711
+            Candidate Career Portal · Recruiting Licence (RL-711)
           </span>
           <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-tight max-w-[1050px]">
             Build Your International Career with Sanjana International

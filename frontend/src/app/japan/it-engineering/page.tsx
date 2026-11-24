@@ -5,7 +5,7 @@ import SubPageShell from "@/components/SubPageShell";
 export const metadata: Metadata = {
   title: "IT & Engineering Recruitment Japan | Sanjana International",
   description:
-    "Connecting Japanese businesses with Bangladesh's technical talent: software developers, cloud engineers, civil, mechanical, and electrical engineers with Japanese language preparation under RL-711.",
+    "Connecting Japanese businesses with Bangladesh's technical talent: software developers, cloud engineers, civil, mechanical, and electrical engineers with Japanese language preparation under Recruiting Licence (RL-711).",
 };
 
 const itCategories = [
@@ -75,7 +75,7 @@ export default function ITEngineeringPage() {
         />
         <div className="relative max-w-[1520px] mx-auto flex flex-col items-center text-center">
           <span className="bg-[#c1262e] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-            Technical Talent Mobility · RL-711
+            Technical Talent Mobility · Recruiting Licence (RL-711)
           </span>
           <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-tight max-w-[1050px]">
             IT &amp; Engineering Recruitment from Bangladesh to Japan

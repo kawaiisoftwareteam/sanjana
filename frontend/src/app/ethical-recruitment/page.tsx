@@ -3,9 +3,9 @@ import Link from "next/link";
 import SubPageShell from "@/components/SubPageShell";
 
 export const metadata: Metadata = {
-  title: "Ethical Recruitment Policy | Sanjana International - RL-711",
+  title: "Ethical Recruitment Policy | Sanjana International - Recruiting Licence (RL-711)",
   description:
-    "Responsible recruitment, transparent employment, and respect for every worker. Government licensed RL-711 and OTIT approved BGD000036 ethical charter.",
+    "Responsible recruitment, transparent employment, and respect for every worker. Government Recruiting Licence (RL-711) and OTIT approved BGD000036 ethical charter.",
 };
 
 const principles = [
@@ -53,7 +53,7 @@ export default function EthicalRecruitmentPage() {
         />
         <div className="relative max-w-[1520px] mx-auto flex flex-col items-center text-center">
           <span className="bg-[#c1262e] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-            Zero Exploitation Policy · RL-711
+            Zero Exploitation Policy · Recruiting Licence (RL-711)
           </span>
           <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-tight max-w-[1050px]">
             Our Commitment to Ethical International Recruitment
@@ -148,7 +148,7 @@ export default function EthicalRecruitmentPage() {
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#0c2230] font-bold">✓</span>
-                  <span><strong>Zero Compliance Risk:</strong> Fully recognized under Bangladesh RL-711 and Japan OTIT BGD000036.</span>
+                  <span><strong>Zero Compliance Risk:</strong> Fully recognized under Bangladesh Recruiting Licence (RL-711) and Japan OTIT BGD000036.</span>
                 </li>
               </ul>
             </div>

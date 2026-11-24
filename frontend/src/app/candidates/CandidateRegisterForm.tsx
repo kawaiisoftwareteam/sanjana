@@ -43,7 +43,7 @@ export default function CandidateRegisterForm() {
         </p>
         <div className="bg-[#f8f9fa] border border-black/5 rounded-2xl p-4 text-xs text-[#666] max-w-[500px] text-left mt-2">
           <p className="font-bold text-[#171b1c] mb-1">Important Reminder:</p>
-          <p>Sanjana International conducts all recruitment under Government Licence RL-711. We do not use third-party brokers. Please keep your personal documents safe and never pay unauthorized fees to middlemen.</p>
+          <p>Sanjana International conducts all recruitment under Government Recruiting Licence (RL-711). We do not use third-party brokers. Please keep your personal documents safe and never pay unauthorized fees to middlemen.</p>
         </div>
         <button
           type="button"
@@ -266,7 +266,7 @@ export default function CandidateRegisterForm() {
       </div>
 
       <div className="bg-[#f8f9fa] border border-black/5 p-4 rounded-xl text-xs text-[#737783] leading-relaxed">
-        <strong>Privacy &amp; Regulatory Statement:</strong> Sanjana International operates under Bangladesh Overseas Employment Licence RL-711. Candidate registration expresses interest in suitable vacancies; registration does not guarantee immediate selection or visa issuance. Your information is protected and used solely for recruitment matching.
+        <strong>Privacy &amp; Regulatory Statement:</strong> Sanjana International operates under Bangladesh Recruiting Licence (RL-711). Candidate registration expresses interest in suitable vacancies; registration does not guarantee immediate selection or visa issuance. Your information is protected and used solely for recruitment matching.
       </div>
 
       <button

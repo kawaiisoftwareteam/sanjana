@@ -13,7 +13,7 @@ export default function SiteFooter() {
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-3 flex-wrap">
               <span className="bg-[#c1262e] text-white font-bold text-xs uppercase px-2.5 py-1 rounded">
-                RL-711 Licensed
+                Recruiting Licence (RL-711)
               </span>
               <span className="text-white font-semibold text-[15px] sm:text-[17px]">
                 Sanjana International · Dhaka &amp; Tokyo
@@ -23,7 +23,7 @@ export default function SiteFooter() {
               </span>
             </div>
             <p className="text-sm text-[#bec1c7] mt-1 max-w-[800px]">
-              With over 16 years of management expertise, government-recognized recruitment credentials (RL-711), and a specialized focus on Bangladesh–Japan workforce mobility, we provide ethical, high-quality recruitment solutions.
+              With over 16 years of management expertise, government-recognized recruitment credentials (Recruiting Licence RL-711), and a specialized focus on Bangladesh–Japan workforce mobility, we provide ethical, high-quality recruitment solutions.
             </p>
           </div>
           <div className="flex items-center gap-3 shrink-0">
@@ -239,7 +239,7 @@ export default function SiteFooter() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-white/10 text-xs sm:text-sm">
           <p>© {new Date().getFullYear()} Sanjana International · All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <span>Govt. Recruitment Licence: RL-711</span>
+            <span>Govt. Recruiting Licence (RL-711)</span>
             <span>•</span>
             <span>OTIT Sending Org: BGD000036</span>
           </div>

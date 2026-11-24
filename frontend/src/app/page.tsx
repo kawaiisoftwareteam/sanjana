@@ -6,9 +6,6 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 const assetPathPrefix = "/figma";
-const imgVector65 = `${assetPathPrefix}/49deb.png`;
-const imgVector66 = `${assetPathPrefix}/33e76.png`;
-const imgVector67 = `${assetPathPrefix}/c0a8b.png`;
 const imgRectangle58 = `${assetPathPrefix}/1afeb.png`;
 const imgEllipse1534 = `${assetPathPrefix}/9c025.png`;
 const imgEllipse1535 = `${assetPathPrefix}/13a89.png`;
@@ -39,7 +36,7 @@ const imgCheck2 = `${assetPathPrefix}/d8c87.svg`;
 
 const heroSlides = [
   {
-    image: imgVector65,
+    image: "/hero/civil-engineer-construction-worker-architects-wearing-hardhats-safety-vests-are-working-together-construction-site-building-home-cooperation-teamwork-concept.jpg",
     title: "Career in Japan.",
     fontClass: "font-['Playfair',Georgia,serif] font-medium tracking-tight",
     fontSize: "text-[clamp(2.5rem,7.5vw,8.5rem)]",
@@ -48,7 +45,7 @@ const heroSlides = [
     accent: "text-white",
   },
   {
-    image: imgVector66,
+    image: "/hero/female-is-picking-strawberries-greenhouse.jpg",
     title: "Build Your Future in Tokyo",
     fontClass: "font-['Poppins',sans-serif] font-bold tracking-tight",
     fontSize: "text-[clamp(2rem,6vw,6.75rem)]",
@@ -57,7 +54,7 @@ const heroSlides = [
     accent: "text-white",
   },
   {
-    image: imgVector67,
+    image: "/hero/nurse-old-woman-looking-window.jpg",
     title: "YOUR GATEWAY TO EXCELLENCE",
     fontClass: "font-['Cinzel',serif] font-bold tracking-wider",
     fontSize: "text-[clamp(1.75rem,4.75vw,5.5rem)]",
@@ -116,7 +113,7 @@ const whyChooseItems = [
   {
     title: "1. Licensed Recruitment Agency",
     description:
-      "Sanjana International operates under Bangladesh overseas recruitment licence RL-711. We are committed to conducting recruitment activities in strict accordance with applicable government requirements and ethical international standards.",
+      "Sanjana International operates under Bangladesh Recruiting Licence (RL-711). We are committed to conducting recruitment activities in strict accordance with applicable government requirements and ethical international standards.",
   },
   {
     title: "2. More Than 16 Years of Management Expertise",
@@ -148,7 +145,7 @@ const whyChooseItems = [
 const faqs = [
   {
     q: "What is Sanjana International's recruitment licence number?",
-    a: "Sanjana International is officially licensed by the Ministry of Expatriates' Welfare and Overseas Employment, Government of Bangladesh under Recruiting Licence RL-711. We are also listed in Japan's OTIT approved sending-organization records under BGD000036.",
+    a: "Sanjana International is officially licensed by the Ministry of Expatriates' Welfare and Overseas Employment, Government of Bangladesh under Recruiting Licence (RL-711). We are also listed in Japan's OTIT approved sending-organization records under BGD000036.",
   },
   {
     q: "How do I apply for the Specified Skilled Worker (SSW) program in Japan?",
@@ -455,9 +452,7 @@ export default function Home() {
                     className="size-full object-cover"
                     src={slide.image}
                   />
-                  {idx === 0 && (
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/65" />
-                  )}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/65" />
                 </div>
               ))}
             </div>
@@ -561,48 +556,48 @@ export default function Home() {
 
         {/* Core Principles: Trust, Skills & Professional Standards */}
         <section className="relative z-20 max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-12 -mt-6 sm:-mt-10 pb-12 lg:pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-between">
+          <div className="grid grid-cols-3 gap-2 sm:gap-6">
+            <div className="bg-white border border-black/10 rounded-2xl min-h-20 sm:min-h-0 p-2 sm:p-7 shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-center sm:justify-between">
               <div>
-                <div className="size-12 rounded-xl bg-[#fff5f5] text-[#c1262e] flex items-center justify-center font-bold text-xl mb-4">
+                <div className="hidden sm:flex size-12 rounded-xl bg-[#fff5f5] text-[#c1262e] items-center justify-center font-bold text-xl mb-4">
                   01
                 </div>
-                <h3 className="font-bold text-[#171b1c] text-[22px] mb-2">Quality</h3>
-                <p className="text-[#686868] text-[15.5px] leading-relaxed">
+                <h3 className="font-bold text-[#171b1c] text-xs sm:text-[22px] mb-0 sm:mb-2 text-center sm:text-left">Quality</h3>
+                <p className="hidden sm:block text-[#686868] text-[15.5px] leading-relaxed">
                   Identifying candidates who meet the specific requirements of employers through practical skills testing, document verification, and trade competence.
                 </p>
               </div>
-              <div className="mt-5 pt-4 border-t border-black/5 text-[#c1262e] font-semibold text-sm">
+              <div className="hidden sm:block mt-5 pt-4 border-t border-black/5 text-[#c1262e] font-semibold text-sm">
                 Specific Candidate Matching →
               </div>
             </div>
 
-            <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-between">
+            <div className="bg-white border border-black/10 rounded-2xl min-h-20 sm:min-h-0 p-2 sm:p-7 shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-center sm:justify-between">
               <div>
-                <div className="size-12 rounded-xl bg-[#fff5f5] text-[#c1262e] flex items-center justify-center font-bold text-xl mb-4">
+                <div className="hidden sm:flex size-12 rounded-xl bg-[#fff5f5] text-[#c1262e] items-center justify-center font-bold text-xl mb-4">
                   02
                 </div>
-                <h3 className="font-bold text-[#171b1c] text-[22px] mb-2">Preparation</h3>
-                <p className="text-[#686868] text-[15.5px] leading-relaxed">
+                <h3 className="font-bold text-[#171b1c] text-xs sm:text-[22px] mb-0 sm:mb-2 text-center sm:text-left">Preparation</h3>
+                <p className="hidden sm:block text-[#686868] text-[15.5px] leading-relaxed">
                   Developing technical, linguistic, and workplace readiness — including Japanese language training, discipline (5S &amp; Hou-Ren-So), and safety awareness.
                 </p>
               </div>
-              <div className="mt-5 pt-4 border-t border-black/5 text-[#c1262e] font-semibold text-sm">
+              <div className="hidden sm:block mt-5 pt-4 border-t border-black/5 text-[#c1262e] font-semibold text-sm">
                 Linguistic &amp; Cultural Readiness →
               </div>
             </div>
 
-            <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-between">
+            <div className="bg-white border border-black/10 rounded-2xl min-h-20 sm:min-h-0 p-2 sm:p-7 shadow-lg hover:shadow-xl transition-shadow flex flex-col justify-center sm:justify-between">
               <div>
-                <div className="size-12 rounded-xl bg-[#fff5f5] text-[#c1262e] flex items-center justify-center font-bold text-xl mb-4">
+                <div className="hidden sm:flex size-12 rounded-xl bg-[#fff5f5] text-[#c1262e] items-center justify-center font-bold text-xl mb-4">
                   03
                 </div>
-                <h3 className="font-bold text-[#171b1c] text-[22px] mb-2">Reliability</h3>
-                <p className="text-[#686868] text-[15.5px] leading-relaxed">
-                  Supporting a transparent and professionally managed recruitment process with full regulatory adherence under government licence RL-711.
+                <h3 className="font-bold text-[#171b1c] text-xs sm:text-[22px] mb-0 sm:mb-2 text-center sm:text-left">Reliability</h3>
+                <p className="hidden sm:block text-[#686868] text-[15.5px] leading-relaxed">
+                  Supporting a transparent and professionally managed recruitment process with full regulatory adherence under government Recruiting Licence (RL-711).
                 </p>
               </div>
-              <div className="mt-5 pt-4 border-t border-black/5 text-[#c1262e] font-semibold text-sm">
+              <div className="hidden sm:block mt-5 pt-4 border-t border-black/5 text-[#c1262e] font-semibold text-sm">
                 Transparent &amp; Compliant Deployment →
               </div>
             </div>
@@ -645,12 +640,12 @@ export default function Home() {
                 Sanjana International is a Bangladesh-based international recruitment agency dedicated to connecting qualified Bangladeshi professionals and skilled workers with employment opportunities across global markets.
               </p>
               <p className="text-[#737777] text-[15.5px] sm:text-[17px] leading-[1.6]">
-                With over 16 years of management expertise, government-recognized recruitment credentials (RL-711), and a specialized focus on Bangladesh–Japan workforce mobility, we provide comprehensive recruitment solutions designed around employer requirements, candidate capabilities, and ethical employment practices.
+                With over 16 years of management expertise, government-recognized recruitment credentials (Recruiting Licence RL-711), and a specialized focus on Bangladesh–Japan workforce mobility, we provide comprehensive recruitment solutions designed around employer requirements, candidate capabilities, and ethical employment practices.
               </p>
 
               <ul className="flex flex-col gap-3.5 py-2 w-full">
                 {[
-                  "Government Overseas Recruiting Licence RL-711",
+                  "Government Recruiting Licence (RL-711)",
                   "Over 16 years of management & workforce placement experience",
                   "OTIT approved sending-organization in Japan (BGD000036)",
                   "Dedicated Japan contact office in Shibuya, Tokyo",
@@ -977,7 +972,7 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-7">
                     <div className="text-white">
-                      <p className="font-bold text-xl">Government Licence RL-711</p>
+                      <p className="font-bold text-xl">Government Recruiting Licence (RL-711)</p>
                       <p className="text-white/80 text-sm mt-1">
                         Ensuring ethical standards, documented selection, and full consular compliance.
                       </p>

@@ -5,7 +5,7 @@ import SubPageShell from "@/components/SubPageShell";
 export const metadata: Metadata = {
   title: "Our Services | Sanjana International - Global Workforce Solutions",
   description:
-    "Comprehensive manpower recruitment services from Bangladesh. Japan SSW, TITP, IT & engineering, skilled trades, language training, and deployment coordination under RL-711.",
+    "Comprehensive manpower recruitment services from Bangladesh. Japan SSW, TITP, IT & engineering, skilled trades, language training, and deployment coordination under Recruiting Licence (RL-711).",
 };
 
 const services = [
@@ -131,7 +131,7 @@ export default function ServicesPage() {
         />
         <div className="relative max-w-[1520px] mx-auto flex flex-col items-center text-center">
           <span className="bg-[#c1262e] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-            RL-711 Authorized Services
+            Recruiting Licence (RL-711) Authorized Services
           </span>
           <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-tight max-w-[1000px]">
             International Recruitment &amp; Global Workforce Solutions

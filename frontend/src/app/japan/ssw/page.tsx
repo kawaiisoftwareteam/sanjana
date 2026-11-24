@@ -5,7 +5,7 @@ import SubPageShell from "@/components/SubPageShell";
 export const metadata: Metadata = {
   title: "Specified Skilled Worker (SSW) Japan | Sanjana International",
   description:
-    "Japan Specified Skilled Worker (SSW) recruitment from Bangladesh. SSW (i) and SSW (ii) across 16+ designated industrial sectors with Japanese language and skills test preparation under RL-711.",
+    "Japan Specified Skilled Worker (SSW) recruitment from Bangladesh. SSW (i) and SSW (ii) across 16+ designated industrial sectors with Japanese language and skills test preparation under Recruiting Licence (RL-711).",
 };
 
 const sswSectors = [
@@ -50,7 +50,7 @@ export default function SSWPage() {
         />
         <div className="relative max-w-[1520px] mx-auto flex flex-col items-center text-center">
           <span className="bg-[#c1262e] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-            Specified Skilled Worker (特定技能) · RL-711
+            Specified Skilled Worker (特定技能) · Recruiting Licence (RL-711)
           </span>
           <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-tight max-w-[1050px]">
             Japan Specified Skilled Worker (SSW) Recruitment from Bangladesh
@@ -253,7 +253,7 @@ export default function SSWPage() {
             Passing a language examination or industry skills examination does not automatically guarantee employment or a Japanese visa. Applicants must satisfy all legal criteria, secure an authorized employment contract, and undergo strict background checks. Final visa issuance decisions are made exclusively by the competent Japanese immigration authorities.
           </p>
           <p className="text-xs text-[#777] italic">
-            Sanjana International operates strictly under Bangladesh Government Recruiting Licence RL-711. We do not charge unauthorized recruitment fees or make false visa guarantees.
+            Sanjana International operates strictly under Bangladesh Government Recruiting Licence (RL-711). We do not charge unauthorized recruitment fees or make false visa guarantees.
           </p>
         </div>
       </section>

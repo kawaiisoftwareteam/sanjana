@@ -5,7 +5,7 @@ import SubPageShell from "@/components/SubPageShell";
 export const metadata: Metadata = {
   title: "Japan Recruitment | Sanjana International - Bangladesh to Japan Workforce",
   description:
-    "Connecting skilled Bangladeshi workers with Japanese employers. Specified Skilled Worker (SSW), Technical Intern Training (TITP), and IT & engineering specialists under RL-711 and OTIT BGD000036.",
+    "Connecting skilled Bangladeshi workers with Japanese employers. Specified Skilled Worker (SSW), Technical Intern Training (TITP), and IT & engineering specialists under Recruiting Licence (RL-711) and OTIT BGD000036.",
 };
 
 const strengths = [
@@ -36,7 +36,7 @@ const strengths = [
   },
   {
     title: "Legitimate Bilateral Pathway",
-    desc: "Operating strictly under recruitment licence RL-711 and OTIT sending-organization registration BGD000036, ensuring full regulatory and consular compliance.",
+    desc: "Operating strictly under Recruiting Licence (RL-711) and OTIT sending-organization registration BGD000036, ensuring full regulatory and consular compliance.",
     icon: "📜",
   },
 ];
@@ -109,7 +109,7 @@ export default function JapanPage() {
             Bangladesh to Japan Recruitment – Connecting Skilled Bangladeshi Workers with Japanese Employers
           </h1>
           <p className="mt-5 text-white/80 text-base sm:text-xl max-w-[850px] leading-relaxed">
-            Your trusted recruitment partner for Japanese workforce requirements. Operating under licence RL-711 with a dedicated coordination office in Shibuya, Tokyo.
+            Your trusted recruitment partner for Japanese workforce requirements. Operating under Recruiting Licence (RL-711) with a dedicated coordination office in Shibuya, Tokyo.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mt-8">
             <Link
@@ -265,11 +265,11 @@ export default function JapanPage() {
               Why Japanese Employers Choose Sanjana International
             </h2>
             <p className="text-white/80 text-base sm:text-lg leading-relaxed">
-              We eliminate the friction in cross-border staffing. With full legal licensing under RL-711, official OTIT sending approval (BGD000036), and a bilingual team in Shibuya, Tokyo, we handle all recruitment, language training, trade testing, and immigration formalities.
+              We eliminate the friction in cross-border staffing. With full legal licensing under Recruiting Licence (RL-711), official OTIT sending approval (BGD000036), and a bilingual team in Shibuya, Tokyo, we handle all recruitment, language training, trade testing, and immigration formalities.
             </p>
             <div className="space-y-3 pt-2">
               {[
-                "Licensed Bangladesh recruitment agency (RL-711)",
+                "Licensed Bangladesh recruitment agency (Recruiting Licence RL-711)",
                 "Japan-related sending-organization registration (OTIT BGD000036)",
                 "Japan contact office: 433 Soft Town Aoyama, Jingumae, Shibuya-ku, Tokyo",
                 "Structured candidate trade testing & practical skill verification",

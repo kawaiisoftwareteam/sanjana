@@ -163,7 +163,7 @@ export default function SiteHeader({ activeHref }: SiteHeaderProps) {
           <div className="flex items-center gap-4 lg:gap-6 flex-wrap">
             <span className="flex items-center gap-1.5 text-white/90">
               <span className="bg-[#c1262e] text-white text-[10.5px] font-bold px-1.5 py-0.5 rounded">
-                RL-711
+                Recruiting Licence (RL-711)
               </span>
               <span>Govt. Approved Overseas Recruiting Agency</span>
             </span>

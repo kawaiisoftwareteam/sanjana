@@ -3,9 +3,9 @@ import Link from "next/link";
 import SubPageShell from "@/components/SubPageShell";
 
 export const metadata: Metadata = {
-  title: "About Us | Sanjana International - RL-711 Recruitment Agency",
+  title: "About Us | Sanjana International - Recruiting Licence (RL-711) Recruitment Agency",
   description:
-    "Building international employment opportunities through professional recruitment. Operating under RL-711, OTIT approved BGD000036, with over 16 years of management expertise.",
+    "Building international employment opportunities through professional recruitment. Operating under Recruiting Licence (RL-711), OTIT approved BGD000036, with over 16 years of management expertise.",
 };
 
 const values = [
@@ -38,7 +38,7 @@ const values = [
 
 const credentials = [
   {
-    label: "Overseas Recruitment Licence",
+    label: "Recruiting Licence (RL)",
     value: "RL-711",
     desc: "Authorized by Ministry of Expatriates' Welfare & Overseas Employment, Bangladesh",
   },
@@ -76,7 +76,7 @@ const team = [
     name: "Md Mizanur Rahman",
     role: "Managing Director / Operations Head",
     location: "Dhaka, Bangladesh",
-    bio: "Over 16 years directing technical trade testing, institutional compliance, and overseas deployment under RL-711.",
+    bio: "Over 16 years directing technical trade testing, institutional compliance, and overseas deployment under Recruiting Licence (RL-711).",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function AboutPage() {
         />
         <div className="relative max-w-[1520px] mx-auto flex flex-col items-center text-center">
           <span className="bg-[#c1262e] text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4">
-            Licence RL-711 · OTIT BGD000036
+            Recruiting Licence (RL-711) · OTIT BGD000036
           </span>
           <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-tight max-w-[1000px]">
             Building International Employment Opportunities Through Professional Recruitment
@@ -114,7 +114,7 @@ export default function AboutPage() {
               16+ Years of Management Excellence in Global Mobility
             </h2>
             <p className="text-[#686868] text-base sm:text-[17.5px] leading-relaxed">
-              Operating under overseas recruitment licence <strong>RL-711</strong>, Sanjana International is committed to supporting employers through organized recruitment, candidate evaluation, practical technical trade assessments, and intensive workforce preparation.
+              Operating under <strong>Recruiting Licence (RL-711)</strong>, Sanjana International is committed to supporting employers through organized recruitment, candidate evaluation, practical technical trade assessments, and intensive workforce preparation.
             </p>
             <p className="text-[#686868] text-base sm:text-[17.5px] leading-relaxed">
               Our recruitment activities place particular emphasis on the <strong>Bangladesh–Japan employment corridor</strong>, where technical capabilities, Japanese language preparation, workplace discipline (5S, Hou-Ren-So), and cultural understanding are essential elements of successful workforce integration.

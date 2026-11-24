@@ -4,9 +4,9 @@ import SubPageShell from "@/components/SubPageShell";
 import HiringRequestForm from "./HiringRequestForm";
 
 export const metadata: Metadata = {
-  title: "Hire Skilled Bangladeshi Workers | Sanjana International - RL-711",
+  title: "Hire Skilled Bangladeshi Workers | Sanjana International - Recruiting Licence (RL-711)",
   description:
-    "Your international recruitment partner in Bangladesh. Sourcing, technical trade testing, Japanese training, medical checks and deployment coordination for global employers under RL-711 and OTIT BGD000036.",
+    "Your international recruitment partner in Bangladesh. Sourcing, technical trade testing, Japanese training, medical checks and deployment coordination for global employers under Recruiting Licence (RL-711) and OTIT BGD000036.",
 };
 
 const solutions = [
@@ -44,7 +44,7 @@ const solutions = [
 
 const employerReasons = [
   {
-    title: "Bangladesh Recruitment Licence RL-711",
+    title: "Bangladesh Recruiting Licence (RL-711)",
     desc: "Government-approved overseas recruitment agency fully committed to conducting recruitment activities in accordance with legal and ethical standards.",
   },
   {
@@ -84,7 +84,7 @@ const employerSteps = [
 ];
 
 const stats = [
-  { value: "RL-711", label: "Govt. Recruitment Licence" },
+  { value: "RL-711", label: "Recruiting Licence" },
   { value: "BGD000036", label: "OTIT Sending Org (Japan)" },
   { value: "16+ Years", label: "Management Expertise" },
   { value: "100%", label: "Trade-Tested Candidates" },
@@ -122,7 +122,7 @@ export default function EmployersPage() {
         <div className="relative max-w-[1520px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <span className="bg-[#c1262e] text-white font-bold tracking-widest text-xs uppercase px-3.5 py-1 rounded-full drop-shadow">
-              RL-711 · OTIT BGD000036
+              Recruiting Licence (RL-711) · OTIT BGD000036
             </span>
             <h1 className="font-bold text-[32px] sm:text-[46px] lg:text-[56px] leading-[1.1] tracking-tight mt-3 drop-shadow-md">
               Hire Skilled Bangladeshi Workers with Sanjana International
