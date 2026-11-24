@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Map font classes directly to loaded Google Fonts */
+[class*="font-['Inter"] {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+[class*="font-['Poppins"] {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+[class*="font-['Sora"] {
+  font-family: 'Sora', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+[class*="font-['Arimo"] {
+  font-family: 'Arimo', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+[class*="font-['Manrope"] {
+  font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+[class*="font-['Lato"] {
+  font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+[class*="font-['Playfair"] {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+[class*="font-['Cinzel"] {
+  font-family: 'Cinzel', serif !important;
+}
+[class*="font-['La_Mango"] {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+[class*="font-['Magistic_Sans"] {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+[class*="font-['Barlow_Condensed"] {
+  font-family: 'Barlow Condensed', sans-serif !important;
+}
+
+/* Responsive Site Navigation (Popover + Inline Adaptation) */
+.site-header .header-inner > * {
+  flex-shrink: 0;
+}
+
+.site-header .menu-button {
+  anchor-name: --menu-button;
+}
+
+.site-header .site-menu {
+  position: fixed;
+  inset: auto;
+  inset-block-start: 4.75rem;
+  inset-block-start: anchor(--menu-button bottom);
+  inset-inline-end: 1rem;
+  inline-size: min(85dvw, 22rem);
+  max-inline-size: calc(100dvw - 2rem);
+  block-size: fit-content;
+  max-block-size: calc(100dvh - 6rem);
+  margin-block-start: 0.5rem;
+  overflow: auto;
+  opacity: 0;
+  translate: 0 -0.5rem;
+  transition: opacity 0.2s ease, translate 0.2s ease, display 0.2s ease, overlay 0.2s ease;
+  transition-behavior: allow-discrete;
+}
+
+.site-header .site-menu:is(:popover-open, .\:popover-open) {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  translate: 0 0;
+}
+
+@starting-style {
+  .site-header .site-menu:is(:popover-open, .\:popover-open) {
+    opacity: 0;
+    translate: 0 -0.5rem;
+  }
+}
+
+.site-header.is-measuring .site-menu {
+  transition: none !important;
+}
+
+.site-header.is-wide .menu-button {
+  display: none;
+}
+
+.site-header.is-wide .site-menu {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  inline-size: auto;
+  max-inline-size: none;
+  block-size: auto;
+  max-block-size: none;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  opacity: 1;
+  translate: none;
+}
+
+.site-header.is-wide .site-menu::backdrop {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .site-menu {
+    transition: none;
+  }
+}
+
+/* Testimonials marquee */
+.testimonial-marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.testimonial-track {
+  animation: testimonial-scroll 50s linear infinite;
+}
+.testimonial-marquee:hover .testimonial-track {
+  animation-play-state: paused;
+}
+@keyframes testimonial-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-track {
+    animation: none;
+  }
+  .testimonial-marquee {
+    overflow-x: auto;
+  }
+}
+
+/* In the collapsed (popover) menu the dropdown opens inline instead of floating */
+.site-header:not(.is-wide) .site-menu .nav-dropdown-panel {
+  position: static;
+  width: 100%;
+  margin-top: 0.25rem;
+  box-shadow: none;
+}

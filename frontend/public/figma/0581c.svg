@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="449.792" height="449.792" viewBox="0 0 449.792 449.792" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="Yellow semicircle" d="M0 77.1722C49.4125 27.7597 116.43 -9.01784e-07 186.31 0C256.19 9.01784e-07 323.208 27.7597 372.62 77.1722C422.033 126.585 449.792 193.602 449.792 263.482C449.792 333.362 422.033 400.38 372.62 449.792L0 77.1722Z" fill="url(#paint0_linear_0_154)"/>
+<defs>
+<linearGradient id="paint0_linear_0_154" x1="65.8466" y1="65.8466" x2="383.946" y2="383.946" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFD900"/>
+<stop offset="1" stop-color="#FFC400"/>
+</linearGradient>
+</defs>
+</svg>

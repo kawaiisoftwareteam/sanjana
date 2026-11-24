@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="134" height="24" viewBox="0 0 134 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 2147232030">
+<g id="Frame 2147232030_2">
+<path id="Line 1" d="M2 12H5.78571M108 12H104.214M13.3571 12H20.9286M28.5 12H36.0714M43.6429 12H51.2143M58.7857 12H66.3572M73.9286 12H81.5M89.0714 12H96.6428" stroke-width="4" stroke-linecap="round" stroke="#666661"/>
+</g>
+<g id="Step 1 marker">
+<ellipse cx="122" cy="12" rx="12" ry="12" fill="#C1262E"/>
+<mask id="stroke0_0_70" fill="white">
+<path d="M122 1.38281e-06C128.627 1.09312e-06 134 5.37258 134 12C134 18.6274 128.627 24 122 24C115.373 24 110 18.6274 110 12C110 5.37259 115.373 1.67251e-06 122 1.38281e-06Z"/>
+</mask>
+<ellipse cx="122" cy="12" rx="12" ry="12" stroke-width="6.10169" stroke="#666661" mask="url(#stroke0_0_70)"/>
+</g>
+</g>
+</svg>
