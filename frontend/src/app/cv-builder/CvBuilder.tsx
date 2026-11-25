@@ -40,6 +40,8 @@ export default function CvBuilder() {
   const [mobileTab, setMobileTab] = useState<"form" | "preview">("form");
   const [photoError, setPhotoError] = useState("");
   const [step, setStep] = useState(0);
+  /** Phones: show the preview at full size (scroll sideways) instead of fitted to the screen. */
+  const [zoom, setZoom] = useState(false);
   const [savedAt, setSavedAt] = useState<Date | null>(null);
   const [saveFlash, setSaveFlash] = useState<"saved" | "failed" | null>(null);
   /** Hidden copy of the CV with empty rows removed — this is what goes into the PDF. */
@@ -181,7 +183,7 @@ export default function CvBuilder() {
             bilingual Japanese / English format employers use. Download it as a PDF when you&apos;re done.
           </p>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="grid grid-cols-2 sm:flex sm:flex-nowrap gap-3 w-full sm:w-auto shrink-0">
           <button
             type="button"
             onClick={reset}
@@ -193,7 +195,7 @@ export default function CvBuilder() {
           <button
             type="button"
             onClick={downloadPdf}
-            className="h-[46px] px-5 rounded-[10px] bg-[#cc0a2f] hover:bg-[#a60826] text-white font-bold transition-colors cursor-pointer inline-flex items-center gap-2"
+            className="col-span-2 h-[46px] px-5 rounded-[10px] bg-[#cc0a2f] hover:bg-[#a60826] text-white font-bold transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
           >
             <DownloadIcon /> Download PDF
           </button>
@@ -247,11 +249,13 @@ export default function CvBuilder() {
                         }`}
                       />
                       <span
-                        className={`hidden sm:block mt-2 text-[12.5px] leading-tight ${
+                        className={`block mt-2 text-[11px] sm:text-[12.5px] leading-tight truncate ${
                           state === "current" ? "text-[#151719] font-semibold" : "text-[#8a8d95]"
                         }`}
+                        title={s.en}
                       >
-                        {i + 1}. {s.en}
+                        <span className="hidden sm:inline">{i + 1}. </span>
+                        {s.short}
                       </span>
                     </button>
                   </li>
@@ -261,7 +265,6 @@ export default function CvBuilder() {
             <div className="flex items-center justify-between text-[13px] text-[#737783] mt-2 sm:mt-1.5 px-0.5">
               <span>
                 Step {step + 1} of {cvSections.length}
-                <span className="sm:hidden"> · {section.en}</span>
               </span>
               <span>
                 {savedAt
@@ -272,11 +275,12 @@ export default function CvBuilder() {
           </div>
 
           {[section].map((section) => (
-            <fieldset key={section.id} className="bg-white rounded-[18px] border border-black/5 shadow-sm p-5 sm:p-6">
+            <fieldset key={section.id} className="min-w-0 bg-white rounded-[18px] border border-black/5 shadow-sm p-4 sm:p-6">
               <legend className="sr-only">{section.en}</legend>
               <div className="flex items-start justify-between gap-3">
-                <h2 className="font-bold text-[#151719] text-[19px] leading-tight">
-                  {section.en} <span className="text-[#737783] font-medium text-[15px]">/ {section.jp}</span>
+                <h2 className="font-bold text-[#151719] text-[18px] sm:text-[19px] leading-tight min-w-0">
+                  {section.en}
+                  <span className="block text-[#737783] font-medium text-[14px] mt-0.5">{section.jp}</span>
                 </h2>
                 <span className="shrink-0 text-[12.5px] font-semibold text-[#737783] bg-[#f1f2f4] rounded-full px-2.5 py-1">
                   {countFilled(section)} / {countTotal(section)}
@@ -290,7 +294,7 @@ export default function CvBuilder() {
                       {gi > 0 && <span className="text-[#a3a6ad] normal-case font-medium"> · optional</span>}
                     </p>
                   )}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
                     {group.fields.map((f) => (
                       <FieldInput
                         key={f.key}
@@ -308,27 +312,30 @@ export default function CvBuilder() {
           ))}
 
           {/* Step navigation */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {step > 0 && (
               <button
                 type="button"
                 onClick={() => goTo(step - 1)}
-                className="h-[50px] px-6 rounded-[12px] border border-black/15 bg-white text-[#151719] font-semibold hover:border-[#cc0a2f] hover:text-[#cc0a2f] transition-colors cursor-pointer"
+                aria-label="Back"
+                className="shrink-0 h-[50px] px-4 sm:px-6 rounded-[12px] border border-black/15 bg-white text-[#151719] font-semibold hover:border-[#cc0a2f] hover:text-[#cc0a2f] transition-colors cursor-pointer"
               >
-                ← Back
+                ← <span className="hidden sm:inline">Back</span>
               </button>
             )}
             <SaveButton onSave={saveNow} flash={saveFlash} tall />
             <button
               type="submit"
-              className="flex-1 h-[50px] rounded-[12px] bg-[#cc0a2f] hover:bg-[#a60826] text-white font-bold text-[16px] transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
+              className="flex-1 min-w-0 h-[50px] px-3 rounded-[12px] bg-[#cc0a2f] hover:bg-[#a60826] text-white font-bold text-[15px] sm:text-[16px] transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
             >
               {isLast ? (
                 <>
-                  <DownloadIcon /> Download PDF
+                  <DownloadIcon /> <span className="truncate">Download PDF</span>
                 </>
               ) : (
-                <>Next: {cvSections[step + 1].en} →</>
+                <span className="truncate">
+                  Next<span className="hidden sm:inline">: {cvSections[step + 1].short}</span> →
+                </span>
               )}
             </button>
           </div>
@@ -349,9 +356,19 @@ export default function CvBuilder() {
         <div
           className={`lg:sticky lg:top-[108px] ${mobileTab === "preview" ? "" : "hidden lg:block"}`}
         >
-          <div className="bg-[#e9ebee] rounded-[18px] p-3 sm:p-5 lg:max-h-[calc(100vh-130px)] lg:overflow-y-auto">
-            <div className="flex items-center justify-between mb-3 px-1">
-              <p className="text-[13.5px] font-semibold text-[#4a4d55]">Live preview · A4</p>
+          <div className="bg-[#e9ebee] rounded-[18px] p-2.5 sm:p-5 lg:max-h-[calc(100vh-130px)] lg:overflow-y-auto">
+            <div className="flex items-center justify-between gap-2 mb-3 px-1">
+              <div className="flex items-center gap-2">
+                <p className="text-[13.5px] font-semibold text-[#4a4d55]">Live preview · A4</p>
+                <button
+                  type="button"
+                  onClick={() => setZoom((z) => !z)}
+                  aria-pressed={zoom}
+                  className="md:hidden h-[28px] px-2.5 rounded-full bg-white border border-black/10 text-[12.5px] font-semibold text-[#151719] cursor-pointer"
+                >
+                  {zoom ? "Fit" : "Zoom"}
+                </button>
+              </div>
               <button
                 type="button"
                 onClick={downloadPdf}
@@ -360,9 +377,12 @@ export default function CvBuilder() {
                 <DownloadIcon /> Download PDF
               </button>
             </div>
-            <div className="bg-white shadow-md rounded-[4px] p-3 sm:p-6 overflow-x-auto">
-              <CvDocument data={data} />
-            </div>
+            {/* The page keeps its A4 proportions and is scaled down to fit narrow screens. */}
+            <ScaledPage width={720} fit={!zoom}>
+              <div className="bg-white shadow-md rounded-[4px] p-6">
+                <CvDocument data={data} />
+              </div>
+            </ScaledPage>
             {/* PDF copy: only filled-in rows */}
             <div ref={pdfRef} hidden>
               <CvDocument data={data} hideEmpty />
@@ -373,6 +393,49 @@ export default function CvBuilder() {
             <strong>“Save as PDF”</strong> as the destination.
           </p>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/** Renders children at least `width` px wide and scales them down to fit a narrower container. */
+function ScaledPage({ width, fit, children }: { width: number; fit: boolean; children: React.ReactNode }) {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const [box, setBox] = useState<{ scale: number; innerW: number; height?: number }>({ scale: 1, innerW: width });
+
+  useEffect(() => {
+    const outer = outerRef.current;
+    const inner = innerRef.current;
+    if (!outer || !inner) return;
+    const measure = () => {
+      const avail = outer.clientWidth;
+      const scale = Math.min(1, avail / width);
+      const innerW = scale < 1 ? width : avail;
+      setBox({ scale, innerW, height: inner.offsetHeight * scale });
+    };
+    const ro = new ResizeObserver(measure);
+    ro.observe(outer);
+    ro.observe(inner);
+    return () => ro.disconnect();
+  }, [width]);
+
+  const scaled = fit && box.scale < 1;
+  return (
+    <div
+      ref={outerRef}
+      className={`w-full ${scaled ? "overflow-hidden" : "overflow-x-auto"}`}
+      style={{ height: scaled ? box.height : undefined }}
+    >
+      <div
+        ref={innerRef}
+        style={{
+          width: box.innerW,
+          transform: scaled ? `scale(${box.scale})` : undefined,
+          transformOrigin: "top left",
+        }}
+      >
+        {children}
       </div>
     </div>
   );
@@ -557,28 +620,28 @@ function FieldInput({
       <span className="text-[12px] text-[#8a8d95]">{field.jp}</span>
     </span>
   );
-  const wrap = `flex flex-col gap-1.5 ${field.wide || field.type === "textarea" ? "sm:col-span-2" : ""}`;
+  const wrap = `flex flex-col gap-1.5 ${field.wide || field.type === "textarea" ? "sm:col-span-2 lg:col-span-1 xl:col-span-2" : ""}`;
 
   if (field.type === "photo") {
     return (
       <div className={wrap}>
         {label}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           {value ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={value} alt="" className="w-[72px] h-[96px] object-cover rounded-[6px] border border-black/10" />
+            <img src={value} alt="" className="shrink-0 w-[72px] h-[96px] object-cover rounded-[6px] border border-black/10" />
           ) : (
-            <div className="w-[72px] h-[96px] rounded-[6px] border border-dashed border-black/20 bg-[#fffbe6] flex items-center justify-center text-[11px] text-[#a3a6ad] text-center">
+            <div className="shrink-0 w-[72px] h-[96px] rounded-[6px] border border-dashed border-black/20 bg-[#fffbe6] flex items-center justify-center text-[11px] text-[#a3a6ad] text-center">
               3 × 4
             </div>
           )}
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1.5 min-w-0 flex-1">
             <input
               id={id}
               type="file"
               accept="image/jpeg,image/png,image/webp"
               onChange={(e) => onPhoto(e.target.files?.[0])}
-              className="text-[14px] file:mr-3 file:rounded-[8px] file:border-0 file:bg-[#f1f2f4] file:px-3 file:py-2 file:font-semibold file:cursor-pointer"
+              className="w-full min-w-0 text-[13px] sm:text-[14px] file:mr-2 sm:file:mr-3 file:rounded-[8px] file:border-0 file:bg-[#f1f2f4] file:px-3 file:py-2 file:font-semibold file:cursor-pointer"
             />
             <span className="text-[12px] text-[#8a8d95]">
               Auto-cropped to 3:4 and compressed to JPEG ≤ 50 KB.

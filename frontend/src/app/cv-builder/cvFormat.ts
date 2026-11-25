@@ -25,6 +25,8 @@ export interface CvGroup {
 
 export interface CvSection {
   id: string;
+  /** Short label for the step bar. */
+  short: string;
   jp: string;
   en: string;
   groups: CvGroup[];
@@ -67,6 +69,7 @@ export const CV_TITLE_EN = "CURRICULUM VITAE & CANDIDATE INFORMATION";
 export const cvSections: CvSection[] = [
   {
     id: "basic",
+    short: "Basic",
     jp: "基本情報",
     en: "Basic Information",
     groups: [
@@ -97,18 +100,21 @@ export const cvSections: CvSection[] = [
   },
   {
     id: "education",
+    short: "Education",
     jp: "学歴",
     en: "Education History",
     groups: [education(1), education(2), education(3)],
   },
   {
     id: "employment",
+    short: "Employment",
     jp: "職務経歴",
     en: "Employment History",
     groups: [employment(1), employment(2)],
   },
   {
     id: "skills",
+    short: "Qualifications",
     jp: "特定技能・資格情報",
     en: "Specified Skilled Worker & Qualifications",
     groups: [
@@ -123,6 +129,7 @@ export const cvSections: CvSection[] = [
   },
   {
     id: "passport",
+    short: "Passport",
     jp: "パスポート・来日情報",
     en: "Passport & Japan Travel Information",
     groups: [

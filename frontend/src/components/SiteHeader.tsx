@@ -165,30 +165,33 @@ export default function SiteHeader({ activeHref }: SiteHeaderProps) {
     <>
       {/* Top Credentials & Contact Bar */}
       <div className="bg-[#0c2230] text-white text-[12px] sm:text-[13px] py-1.5 px-4 sm:px-6 lg:px-12 border-b border-white/10 hidden md:block">
-        <div className="max-w-[1760px] mx-auto flex items-center justify-between gap-4 font-['Inter',sans-serif]">
-          <div className="flex items-center gap-4 lg:gap-6 flex-wrap">
+        {/* Every item stays on one line; less important text appears only as the screen gets wider. */}
+        <div className="max-w-[1760px] mx-auto flex items-center justify-between gap-4 font-['Inter',sans-serif] whitespace-nowrap">
+          <div className="flex items-center gap-3 lg:gap-5 min-w-0">
             <span className="flex items-center gap-1.5 text-white/90">
               <span className="bg-[#c1262e] text-white text-[10.5px] font-bold px-1.5 py-0.5 rounded">
                 Recruiting Licence (RL-711)
               </span>
-              <span>Govt. Approved Overseas Recruiting Agency</span>
+              <span className="hidden xl:inline">Govt. Approved Overseas Recruiting Agency</span>
             </span>
-            <span className="text-white/40">|</span>
+            <span className="text-white/40 hidden xl:inline">|</span>
             <span className="text-white/80">
-              OTIT Approved Sending Organization: <strong className="text-white">BGD000036</strong>
+              <span className="hidden 2xl:inline">OTIT Approved Sending Organization: </span>
+              <span className="2xl:hidden">OTIT: </span>
+              <strong className="text-white">BGD000036</strong>
             </span>
           </div>
-          <div className="flex items-center gap-5 text-white/90">
+          <div className="flex items-center gap-3 lg:gap-5 text-white/90">
             <a
               href="tel:+8801901850573"
               className="hover:text-white transition-colors flex items-center gap-1"
             >
               <span>BD: +880 1901-850573</span>
             </a>
-            <span className="text-white/40">|</span>
+            <span className="text-white/40 hidden lg:inline">|</span>
             <a
               href="tel:+81369105465"
-              className="hover:text-white transition-colors flex items-center gap-1"
+              className="hover:text-white transition-colors hidden lg:flex items-center gap-1"
             >
               <span>Japan: 03-6910-5465</span>
             </a>
