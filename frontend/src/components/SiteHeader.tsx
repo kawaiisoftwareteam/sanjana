@@ -46,6 +46,11 @@ export const opportunityLinks: NavDropdownLink[] = [
     href: "/jobs",
     description: "Browse current openings in Japan & abroad",
   },
+  {
+    label: "Generate CV",
+    href: "/cv-builder",
+    description: "Build your Japan-format CV & download PDF",
+  },
 ];
 
 interface SiteHeaderProps {
@@ -153,7 +158,8 @@ export default function SiteHeader({ activeHref }: SiteHeaderProps) {
   const isOpportunityActive =
     currentPath === "/employers" ||
     currentPath === "/candidates" ||
-    currentPath.startsWith("/jobs");
+    currentPath.startsWith("/jobs") ||
+    currentPath.startsWith("/cv-builder");
 
   return (
     <>

@@ -159,6 +159,11 @@ export default function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/cv-builder" className="hover:text-white transition-colors">
+                  Generate CV
+                </Link>
+              </li>
+              <li>
                 <Link href="/ethical-recruitment" className="hover:text-white transition-colors">
                   Worker Rights &amp; Standards
                 </Link>
