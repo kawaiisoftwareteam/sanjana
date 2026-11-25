@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 const imgSubtract1 = "/figma/5196c.svg";
-const imgGemini = "/figma/f710d.png";
+const imgGemini = "/figma/f710d.webp";
 
 export default function SiteFooter() {
   return (

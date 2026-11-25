@@ -1,16 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const roles = ["Employer", "Candidate", "IT Recruitment", "Other"] as const;
 
 const inputCls =
   "h-[52px] w-full rounded-[12px] border border-black/10 bg-[#f8f9fa] px-4 text-[15.5px] text-[#151719] placeholder:text-[#9a9ea8] transition-colors focus:bg-white focus:border-[#cc0a2f] focus:outline-none focus:ring-4 focus:ring-[#cc0a2f]/10";
 
-export default function ContactForm({ initialRole }: { initialRole?: string }) {
-  const [role, setRole] = useState<string>(
-    roles.includes(initialRole as (typeof roles)[number]) ? initialRole! : "Employer"
-  );
+export default function ContactForm() {
+  const [role, setRole] = useState<string>("Employer");
+
+  // Read ?role= on the client so the page can be statically exported
+  useEffect(() => {
+    const initialRole = new URLSearchParams(window.location.search).get("role");
+    if (roles.includes(initialRole as (typeof roles)[number])) setRole(initialRole!);
+  }, []);
   const [submitted, setSubmitted] = useState(false);
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {

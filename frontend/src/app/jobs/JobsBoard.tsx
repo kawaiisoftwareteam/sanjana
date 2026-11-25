@@ -74,7 +74,7 @@ export default function JobsBoard() {
       {/* Hero + Search */}
       <section className="relative w-full bg-[#151719] text-white px-4 sm:px-6 lg:px-12 pt-14 sm:pt-20 pb-24 sm:pb-28 overflow-hidden">
         <img
-          src="/figma/global-candidates.jpg"
+          src="/figma/global-candidates.webp"
           alt=""
           className="absolute inset-0 size-full object-cover opacity-20 pointer-events-none"
         />

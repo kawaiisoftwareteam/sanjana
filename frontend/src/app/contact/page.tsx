@@ -105,12 +105,7 @@ const team = [
   },
 ];
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
-  const role = (await searchParams).role;
+export default function ContactPage() {
 
   return (
     <SubPageShell active="/contact">
@@ -118,7 +113,7 @@ export default async function ContactPage({
         {/* Hero */}
         <section className="relative overflow-hidden bg-[#151719] text-white px-4 sm:px-6 lg:px-12 pt-16 sm:pt-24 pb-36 sm:pb-44">
           <img
-            src="/figma/global-workforce-hero.jpg"
+            src="/figma/global-workforce-hero.webp"
             alt=""
             className="absolute inset-0 size-full object-cover opacity-25 pointer-events-none"
           />
@@ -316,7 +311,7 @@ export default async function ContactPage({
             </div>
 
             <div className="lg:col-span-7 bg-white rounded-[24px] border border-black/5 shadow-[0_20px_50px_rgba(21,23,25,0.08)] p-6 sm:p-10">
-              <ContactForm initialRole={typeof role === "string" ? role : undefined} />
+              <ContactForm />
             </div>
           </div>
         </section>
