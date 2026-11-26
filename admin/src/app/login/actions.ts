@@ -22,7 +22,7 @@ export async function login(_prev: string | null, formData: FormData): Promise<s
   (await cookies()).set(SESSION_COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: process.env.COOKIE_SECURE === "1",
     path: "/",
     maxAge: SESSION_TTL,
   });

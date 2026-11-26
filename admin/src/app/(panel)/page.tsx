@@ -1,21 +1,23 @@
 import Link from "next/link";
+import { listCVs } from "@/lib/cvs";
 import { listJobs } from "@/lib/jobs";
 
 export const dynamic = "force-dynamic";
 
 export default async function Dashboard() {
-  const jobs = await listJobs();
+  const [jobs, cvs] = await Promise.all([listJobs(), listCVs()]);
   const openings = jobs.reduce((n, j) => n + j.openings, 0);
   const sectors = new Set(jobs.map((j) => j.sector)).size;
   const stats = [
     { label: "Job listings", value: jobs.length },
     { label: "Total openings", value: openings },
     { label: "Sectors", value: sectors },
+    { label: "Saved CVs", value: cvs.length },
   ];
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Dashboard</h1>
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className="rounded-xl bg-white p-5 shadow-sm">
             <p className="text-sm text-gray-500">{s.label}</p>

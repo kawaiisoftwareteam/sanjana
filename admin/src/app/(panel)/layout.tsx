@@ -8,6 +8,7 @@ export default function PanelLayout({ children }: { children: React.ReactNode })
         <span className="mr-auto text-lg font-semibold text-white md:mb-4 md:mr-0">Admin</span>
         <Link href="/" className="rounded px-3 py-2 hover:bg-gray-800">Dashboard</Link>
         <Link href="/jobs" className="rounded px-3 py-2 hover:bg-gray-800">Jobs</Link>
+        <Link href="/cvs" className="rounded px-3 py-2 hover:bg-gray-800">CVs</Link>
         <form action={logout} className="md:mt-auto">
           <button className="w-full rounded px-3 py-2 text-left hover:bg-gray-800">Sign out</button>
         </form>

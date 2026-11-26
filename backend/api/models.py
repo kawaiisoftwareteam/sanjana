@@ -26,3 +26,18 @@ class Job(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class CandidateCV(models.Model):
+    full_name = models.CharField(max_length=200, blank=True)
+    email = models.CharField(max_length=200, blank=True)
+    phone = models.CharField(max_length=100, blank=True)
+    data = models.JSONField(default=dict)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-updated_at', '-id']
+
+    def __str__(self):
+        return self.full_name or f'CV #{self.pk}'
