@@ -7,6 +7,7 @@ import {
   type CvData,
   type CvField,
 } from "./cvFormat";
+import CvPreview from "./CvPreview";
 
 const STORAGE_KEY = "sanjana-cv-draft";
 
@@ -31,38 +32,18 @@ export default function CvBuilder() {
     }
   };
 
-  // Restore a saved draft after mount (localStorage isn't available during the static render).
+  // Nothing is kept between visits: clear any draft left by older versions of this page.
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time sync from browser storage
-        setData(JSON.parse(saved));
-        setSavedAt(new Date());
-      }
+      localStorage.removeItem(STORAGE_KEY);
     } catch {
-      /* storage unavailable or corrupt draft */
+      /* storage unavailable */
     }
   }, []);
 
-  const persist = (next: CvData): boolean => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      setSavedAt(new Date());
-      return true;
-    } catch {
-      return false; // quota / private mode
-    }
-  };
-
-  // Every change is auto-saved too, so nothing is lost if the tab closes.
-  const update = (next: CvData) => {
-    setData(next);
-    persist(next);
-  };
+  const update = (next: CvData) => setData(next);
 
   const saveNow = async () => {
-    persist(data);
     setSaveFlash("saving");
     setSubmittedNotice(false);
     try {
@@ -78,6 +59,7 @@ export default function CvBuilder() {
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setSaveFlash("saved");
+      setSavedAt(new Date());
       setSubmittedNotice(true);
     } catch {
       setSaveFlash("failed");
@@ -143,7 +125,7 @@ export default function CvBuilder() {
 
       {submittedNotice && (
         <div className="mb-6 rounded-[14px] border border-[#bfe8cd] bg-[#effaf3] px-5 py-4 text-[#166534] text-[14.5px] font-medium">
-          Your CV has been saved and submitted! Only the Sanjana HR admin team can view and download your formatted CV.
+          Your CV has been saved and submitted! Only the Sanjana HR admin team can download your formatted CV.
         </div>
       )}
 
@@ -155,7 +137,7 @@ export default function CvBuilder() {
             if (isLast) saveNow();
             else goTo(step + 1);
           }}
-          className="lg:col-span-8 flex flex-col gap-5"
+          className="lg:col-span-6 flex flex-col gap-5"
         >
           {/* Stepper */}
           <div ref={formTopRef}>
@@ -266,63 +248,18 @@ export default function CvBuilder() {
           </div>
         </form>
 
-        {/* RIGHT — submission status & section progress */}
-        <aside className="lg:col-span-4 lg:sticky lg:top-[108px]">
-          <div className="bg-white rounded-[18px] border border-black/5 shadow-sm p-5 sm:p-6 space-y-5">
-            <div>
-              <p className="text-[12.5px] font-semibold uppercase tracking-wide text-[#cc0a2f]">CV Submission</p>
-              <h3 className="text-[19px] font-bold text-[#151719] mt-1">Admin-Only Review</h3>
-              <p className="text-[14px] text-[#737783] mt-1.5 leading-relaxed">
-                For privacy and formatting consistency, completed CVs are reviewed and downloaded exclusively by the
-                Sanjana HR admin team.
-              </p>
-            </div>
-
-            <div className="rounded-[12px] bg-[#f8f9fb] border border-black/5 p-4">
-              <div className="flex items-center justify-between text-[13.5px] font-semibold text-[#151719]">
-                <span>Overall completion</span>
-                <span>
-                  {totalFilled} / {totalFields} fields
-                </span>
-              </div>
-              <div className="mt-2 h-2 rounded-full bg-[#e5e7eb] overflow-hidden">
-                <div
-                  className="h-full bg-[#cc0a2f] transition-all"
-                  style={{ width: `${totalFields ? Math.round((totalFilled / totalFields) * 100) : 0}%` }}
-                />
-              </div>
-            </div>
-
-            <ul className="space-y-2">
-              {cvSections.map((s, i) => {
-                const filled = countFilled(s);
-                const total = countTotal(s);
-                return (
-                  <li key={s.id}>
-                    <button
-                      type="button"
-                      onClick={() => goTo(i)}
-                      className={`w-full flex items-center justify-between rounded-[10px] px-3 py-2 text-left text-[13.5px] transition-colors cursor-pointer ${
-                        i === step
-                          ? "bg-[#fdf0f1] text-[#cc0a2f] font-semibold"
-                          : "hover:bg-[#f5f6f8] text-[#151719]"
-                      }`}
-                    >
-                      <span className="truncate">{i + 1}. {s.en}</span>
-                      <span className="text-[12px] text-[#737783] shrink-0 ml-2">
-                        {filled}/{total}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-
+        {/* RIGHT — live preview (view only) */}
+        <aside className="lg:col-span-6 lg:sticky lg:top-[108px] space-y-4">
+          <CvPreview data={data} />
+          <div className="flex items-center justify-between gap-3 rounded-[12px] bg-white border border-black/5 shadow-sm px-4 py-3">
+            <span className="text-[13.5px] font-semibold text-[#151719]">
+              {totalFilled} / {totalFields} fields completed
+            </span>
             <button
               type="button"
               onClick={saveNow}
               disabled={saveFlash === "saving"}
-              className="w-full h-[46px] rounded-[10px] bg-[#cc0a2f] hover:bg-[#a60826] disabled:opacity-60 text-white font-bold text-[15px] transition-colors cursor-pointer"
+              className="h-[40px] px-5 rounded-[10px] bg-[#cc0a2f] hover:bg-[#a60826] disabled:opacity-60 text-white font-bold text-[14.5px] transition-colors cursor-pointer"
             >
               {saveFlash === "saving" ? "Saving..." : "Save & Submit CV"}
             </button>

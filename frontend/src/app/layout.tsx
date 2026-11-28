@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sanjana International - Career in Japan",
+  title: "Sanjana International - Work in Japan",
   description: "Recruiting Licence (RL-711). Your trusted recruitment partner for skilled professionals, technical specialists, and workforce solutions across international markets.",
 };
 

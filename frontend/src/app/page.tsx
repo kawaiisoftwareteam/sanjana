@@ -41,7 +41,7 @@ const heroSrcSet = (name: string) =>
 const heroSlides = [
   {
     image: "construction",
-    title: "Career in Japan.",
+    title: "Work in Japan.",
     fontClass: "font-['Playfair',Georgia,serif] font-medium tracking-tight",
     fontSize: "text-[clamp(2.5rem,7.5vw,8.5rem)]",
     subtitle:

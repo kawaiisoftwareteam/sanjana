@@ -18,7 +18,7 @@ const CV_CSS = `
 .cvdoc .cv-photo-empty{width:100%;max-width:30mm;aspect-ratio:3/4;margin:0 auto;border:1px dashed #9aa0a6;display:flex;align-items:center;justify-content:center;color:#9aa0a6;font-size:10px;text-align:center}
 .cvdoc .cv-gap td{border-left:none;border-right:none;height:6px;padding:0}
 .cvdoc tr{break-inside:avoid;page-break-inside:avoid}
-.cvdoc .cv-empty td{opacity:.45}
+.cvdoc .cv-empty td:not(.cv-photo-cell){opacity:.45}
 .cvdoc .cv-spacer td{height:11mm;padding:0;border:none}`;
 
 const PHOTO_ROWS = 6;
