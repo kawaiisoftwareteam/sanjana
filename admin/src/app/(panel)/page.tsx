@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listCVs } from "@/lib/cvs";
+import { T } from "@/lib/i18n";
 import { listJobs } from "@/lib/jobs";
 
 export const dynamic = "force-dynamic";
@@ -9,17 +10,17 @@ export default async function Dashboard() {
   const openings = jobs.reduce((n, j) => n + j.openings, 0);
   const sectors = new Set(jobs.map((j) => j.sector)).size;
   const stats = [
-    { label: "Job listings", value: jobs.length },
-    { label: "Total openings", value: openings },
-    { label: "Sectors", value: sectors },
-    { label: "Saved CVs", value: cvs.length },
+    { label: <T en="Job listings" jp="求人数" />, value: jobs.length },
+    { label: <T en="Total openings" jp="募集人数合計" />, value: openings },
+    { label: <T en="Sectors" jp="業種数" />, value: sectors },
+    { label: <T en="Saved CVs" jp="保存された履歴書" />, value: cvs.length },
   ];
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">Dashboard</h1>
+      <h1 className="text-2xl font-semibold"><T en="Dashboard" jp="ダッシュボード" /></h1>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {stats.map((s) => (
-          <div key={s.label} className="rounded-xl bg-white p-5 shadow-sm">
+        {stats.map((s, i) => (
+          <div key={i} className="rounded-xl bg-white p-5 shadow-sm">
             <p className="text-sm text-gray-500">{s.label}</p>
             <p className="text-3xl font-semibold">{s.value}</p>
           </div>
@@ -27,8 +28,8 @@ export default async function Dashboard() {
       </div>
       <section className="rounded-xl bg-white p-5 shadow-sm">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="font-semibold">Latest jobs</h2>
-          <Link href="/jobs/new" className="text-sm text-blue-600">+ Add job</Link>
+          <h2 className="font-semibold"><T en="Latest jobs" jp="最新の求人" /></h2>
+          <Link href="/jobs/new" className="text-sm text-blue-600"><T en="+ Add job" jp="+ 求人を追加" /></Link>
         </div>
         <ul className="divide-y">
           {jobs.slice(0, 5).map((j) => (

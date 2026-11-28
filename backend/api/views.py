@@ -1,9 +1,16 @@
+import json
+import re
+import urllib.parse
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+
 from django.contrib.auth import authenticate
 from django.db import connection
 from django.http import HttpResponse
 from django.utils import timezone
 from rest_framework import viewsets
 from rest_framework.authtoken.models import Token
+from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -238,6 +245,77 @@ class CandidateCVViewSet(viewsets.ModelViewSet):
             email=str(email)[:200],
             phone=str(phone)[:100],
         )
+
+    @action(detail=True, methods=['post'])
+    def translate_jp(self, request, pk=None):
+        """Translate English CV field values to Japanese for admin PDF export."""
+        cv = self.get_object()
+        raw = cv.data if isinstance(cv.data, dict) else {}
+        skip_keys = {'photo', 'email', 'phone', 'dob', 'height', 'weight', 'footSize'}
+        quick_map = {
+            'yes': 'はい',
+            'no': 'いいえ',
+            'male': '男性',
+            'female': '女性',
+            'single': '未婚',
+            'married': '既婚',
+            'divorced': '離婚',
+            'widowed': '死別',
+            'full-time': '正社員',
+            'part-time': 'パート・アルバイト',
+            'contract': '契約社員',
+            'self-employed': '自営業',
+            'internship': 'インターンシップ',
+            'none': 'なし',
+            'n/a': 'なし',
+            'bangladesh': 'バングラデシュ',
+            'bangladeshi': 'バングラデシュ',
+            'dhaka': 'ダッカ',
+            'islam': 'イスラム教',
+            'muslim': 'イスラム教',
+            'hindu': 'ヒンドゥー教',
+            'hinduism': 'ヒンドゥー教',
+            'buddhism': '仏教',
+            'christianity': 'キリスト教',
+        }
+
+        def to_ja(text: str) -> str:
+            s = text.strip()
+            if not s:
+                return text
+            if s.lower() in quick_map:
+                return quick_map[s.lower()]
+            if re.fullmatch(r'[\d\-./:+()\s]+', s):
+                return text
+            # Already contains Japanese characters
+            if re.search(r'[\u3040-\u30ff\u4e00-\u9faf]', s):
+                return text
+            try:
+                q = urllib.parse.quote(s)
+                url = f'https://api.mymemory.translated.net/get?q={q}&langpair=en|ja'
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                with urllib.request.urlopen(req, timeout=8) as r:
+                    payload = json.loads(r.read().decode('utf-8'))
+                translated = (payload.get('responseData') or {}).get('translatedText') or ''
+                return translated.strip() or text
+            except Exception:
+                return text
+
+        translated = {}
+        to_translate = {}
+        for k, v in raw.items():
+            if not isinstance(v, str) or k in skip_keys or k.endswith(('Start', 'End')):
+                translated[k] = v
+            else:
+                to_translate[k] = v
+
+        if to_translate:
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                results = pool.map(lambda item: (item[0], to_ja(item[1])), to_translate.items())
+                for k, val in results:
+                    translated[k] = val
+
+        return Response({'data': translated})
 
 
 class LoginView(APIView):

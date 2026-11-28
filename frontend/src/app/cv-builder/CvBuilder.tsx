@@ -14,8 +14,25 @@ const STORAGE_KEY = "sanjana-cv-draft";
 const inputCls =
   "w-full rounded-[10px] border border-black/15 bg-[#fffbe6] px-3 text-[15px] text-[#151719] placeholder:text-[#a3a6ad] focus:bg-white focus:outline-2 focus:outline-[#cc0a2f]";
 
+const OPTION_JP: Record<string, string> = {
+  Yes: "はい",
+  No: "いいえ",
+  Male: "男性",
+  Female: "女性",
+  Single: "未婚",
+  Married: "既婚",
+  Divorced: "離婚",
+  Widowed: "死別",
+  "Full-time": "正社員",
+  "Part-time": "パート・アルバイト",
+  Contract: "契約社員",
+  "Self-employed": "自営業",
+  Internship: "インターンシップ",
+};
+
 export default function CvBuilder() {
   const [data, setData] = useState<CvData>({});
+  const [formLang, setFormLang] = useState<"en" | "jp">("en");
   const [photoError, setPhotoError] = useState("");
   const [step, setStep] = useState(0);
   const [savedAt, setSavedAt] = useState<Date | null>(null);
@@ -102,24 +119,54 @@ export default function CvBuilder() {
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-14 font-['Inter',sans-serif]">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
         <div>
-          <p className="text-[#cc0a2f] text-[13px] font-semibold uppercase tracking-wide">Opportunities · CV Builder</p>
+          <p className="text-[#cc0a2f] text-[13px] font-semibold uppercase tracking-wide">
+            {formLang === "jp" ? "採用情報 · 履歴書作成" : "Opportunities · CV Builder"}
+          </p>
           <h1 className="font-bold text-[#151719] text-[28px] sm:text-[36px] tracking-tight leading-[1.15] mt-1">
-            Submit Your Japan-Format CV
+            {formLang === "jp" ? "履歴書・人材情報シートの作成" : "Submit Your Japan-Format CV"}
           </h1>
           <p className="text-[#737783] text-[15.5px] mt-2 max-w-[720px]">
-            Fill in the yellow fields below and click <strong>Save</strong> when you&apos;re done. Your CV will be
-            securely submitted to the Sanjana HR admin team for review and processing.
+            {formLang === "jp" ? (
+              <>
+                下の黄色の入力欄にご記入の上、<strong>保存</strong>をクリックしてください。履歴書はSanjana HR管理チームに安全に送信されます。
+              </>
+            ) : (
+              <>
+                Fill in the yellow fields below and click <strong>Save</strong> when you&apos;re done. Your CV will be
+                securely submitted to the Sanjana HR admin team for review and processing.
+              </>
+            )}
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:flex sm:flex-nowrap gap-3 w-full sm:w-auto shrink-0">
+        <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto shrink-0">
+          <div className="inline-flex rounded-[10px] border border-black/15 bg-white p-1">
+            <button
+              type="button"
+              onClick={() => setFormLang("en")}
+              className={`h-[36px] px-3 rounded-[7px] text-[13.5px] font-semibold transition-colors cursor-pointer ${
+                formLang === "en" ? "bg-[#151719] text-white" : "text-[#737783] hover:text-[#151719]"
+              }`}
+            >
+              English
+            </button>
+            <button
+              type="button"
+              onClick={() => setFormLang("jp")}
+              className={`h-[36px] px-3 rounded-[7px] text-[13.5px] font-semibold transition-colors cursor-pointer ${
+                formLang === "jp" ? "bg-[#151719] text-white" : "text-[#737783] hover:text-[#151719]"
+              }`}
+            >
+              日本語
+            </button>
+          </div>
           <button
             type="button"
             onClick={reset}
             className="h-[46px] px-5 rounded-[10px] border border-black/15 bg-white text-[#151719] font-semibold hover:border-[#cc0a2f] hover:text-[#cc0a2f] transition-colors cursor-pointer"
           >
-            Reset
+            {formLang === "jp" ? "リセット" : "Reset"}
           </button>
-          <SaveButton onSave={saveNow} flash={saveFlash} />
+          <SaveButton onSave={saveNow} flash={saveFlash} jp={formLang === "jp"} />
         </div>
       </div>
 
@@ -161,10 +208,10 @@ export default function CvBuilder() {
                         className={`block mt-2 text-[11px] sm:text-[12.5px] leading-tight truncate ${
                           state === "current" ? "text-[#151719] font-semibold" : "text-[#8a8d95]"
                         }`}
-                        title={s.en}
+                        title={formLang === "jp" ? s.jp : s.en}
                       >
                         <span className="hidden sm:inline">{i + 1}. </span>
-                        {s.short}
+                        {formLang === "jp" ? s.jp : s.short}
                       </span>
                     </button>
                   </li>
@@ -188,8 +235,10 @@ export default function CvBuilder() {
               <legend className="sr-only">{section.en}</legend>
               <div className="flex items-start justify-between gap-3">
                 <h2 className="font-bold text-[#151719] text-[18px] sm:text-[19px] leading-tight min-w-0">
-                  {section.en}
-                  <span className="block text-[#737783] font-medium text-[14px] mt-0.5">{section.jp}</span>
+                  {formLang === "jp" ? section.jp : section.en}
+                  <span className="block text-[#737783] font-medium text-[14px] mt-0.5">
+                    {formLang === "jp" ? section.en : section.jp}
+                  </span>
                 </h2>
                 <span className="shrink-0 text-[12.5px] font-semibold text-[#737783] bg-[#f1f2f4] rounded-full px-2.5 py-1">
                   {countFilled(section)} / {countTotal(section)}
@@ -212,6 +261,7 @@ export default function CvBuilder() {
                         onChange={(v) => set(f.key, v)}
                         onPhoto={onPhoto}
                         photoError={photoError}
+                        jp={formLang === "jp"}
                       />
                     ))}
                   </div>
@@ -229,19 +279,23 @@ export default function CvBuilder() {
                 aria-label="Back"
                 className="shrink-0 h-[50px] px-4 sm:px-6 rounded-[12px] border border-black/15 bg-white text-[#151719] font-semibold hover:border-[#cc0a2f] hover:text-[#cc0a2f] transition-colors cursor-pointer"
               >
-                ← <span className="hidden sm:inline">Back</span>
+                ← <span className="hidden sm:inline">{formLang === "jp" ? "戻る" : "Back"}</span>
               </button>
             )}
-            <SaveButton onSave={saveNow} flash={saveFlash} tall />
+            <SaveButton onSave={saveNow} flash={saveFlash} tall jp={formLang === "jp"} />
             <button
               type="submit"
               className="flex-1 min-w-0 h-[50px] px-3 rounded-[12px] bg-[#cc0a2f] hover:bg-[#a60826] text-white font-bold text-[15px] sm:text-[16px] transition-colors cursor-pointer inline-flex items-center justify-center gap-2"
             >
               {isLast ? (
-                <span className="truncate">Save &amp; Submit CV</span>
+                <span className="truncate">{formLang === "jp" ? "保存して送信" : "Save & Submit CV"}</span>
               ) : (
                 <span className="truncate">
-                  Next<span className="hidden sm:inline">: {cvSections[step + 1].short}</span> →
+                  {formLang === "jp" ? "次へ" : "Next"}
+                  <span className="hidden sm:inline">
+                    : {formLang === "jp" ? cvSections[step + 1].jp : cvSections[step + 1].short}
+                  </span>{" "}
+                  →
                 </span>
               )}
             </button>
@@ -274,10 +328,12 @@ function SaveButton({
   onSave,
   flash,
   tall,
+  jp = false,
 }: {
   onSave: () => void;
   flash: "saving" | "saved" | "failed" | null;
   tall?: boolean;
+  jp?: boolean;
 }) {
   return (
     <button
@@ -294,11 +350,11 @@ function SaveButton({
       }`}
     >
       {flash === "saving" ? (
-        <>Saving...</>
+        <>{jp ? "保存中..." : "Saving..."}</>
       ) : flash === "saved" ? (
-        <>✓ Saved</>
+        <>{jp ? "✓ 保存しました" : "✓ Saved"}</>
       ) : flash === "failed" ? (
-        <>Couldn&apos;t save</>
+        <>{jp ? "保存できませんでした" : "Couldn't save"}</>
       ) : (
         <>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -306,7 +362,7 @@ function SaveButton({
             <path d="M17 21v-8H7v8" />
             <path d="M7 3v5h8" />
           </svg>
-          Save
+          {jp ? "保存" : "Save"}
         </>
       )}
     </button>
@@ -321,18 +377,20 @@ function FieldInput({
   onChange,
   onPhoto,
   photoError,
+  jp = false,
 }: {
   field: CvField;
   value: string;
   onChange: (v: string) => void;
   onPhoto: (f: File | undefined) => void;
   photoError: string;
+  jp?: boolean;
 }) {
   const id = `cv-${field.key}`;
   const label = (
     <span className="flex flex-col">
-      <span className="text-[14px] font-medium text-[#151719]">{field.en}</span>
-      <span className="text-[12px] text-[#8a8d95]">{field.jp}</span>
+      <span className="text-[14px] font-medium text-[#151719]">{jp ? field.jp : field.en}</span>
+      <span className="text-[12px] text-[#8a8d95]">{jp ? field.en : field.jp}</span>
     </span>
   );
   const wrap = `flex flex-col gap-1.5 ${field.wide || field.type === "textarea" ? "sm:col-span-2 lg:col-span-1 xl:col-span-2" : ""}`;
@@ -378,10 +436,10 @@ function FieldInput({
       <label htmlFor={id} className={wrap}>
         {label}
         <select id={id} value={value} onChange={(e) => onChange(e.target.value)} className={`${inputCls} h-[46px] cursor-pointer`}>
-          <option value="">Select…</option>
+          <option value="">{jp ? "選択してください…" : "Select…"}</option>
           {field.options?.map((o) => (
             <option key={o} value={o}>
-              {o}
+              {jp ? (OPTION_JP[o] ?? o) : `${o}${OPTION_JP[o] ? ` (${OPTION_JP[o]})` : ""}`}
             </option>
           ))}
         </select>

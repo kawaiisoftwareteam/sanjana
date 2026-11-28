@@ -26,7 +26,7 @@ export default async function CvDetailPage({ params }: { params: Promise<{ id: s
         </div>
       </div>
 
-      <CvViewer data={cv.data ?? {}} fallbackName={name} />
+      <CvViewer cvId={cv.id} data={cv.data ?? {}} fallbackName={name} />
     </div>
   );
 }
